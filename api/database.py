@@ -5,15 +5,23 @@ from typing import Generator
 
 from api.core.config import settings
 
-# SQLite connection args: check_same_thread=False required for SQLite with FastAPI
-connect_args = {}
-if settings.DATABASE_URL.startswith("sqlite"):
-    connect_args = {"check_same_thread": False}
+# Railway (and some providers) emit postgres:// — SQLAlchemy 2.x requires postgresql://
+db_url = settings.DATABASE_URL
+if db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
 
-engine = create_engine(
-    settings.DATABASE_URL,
-    connect_args=connect_args,
-)
+is_sqlite = db_url.startswith("sqlite")
+
+# SQLite needs check_same_thread=False; PostgreSQL uses a connection pool instead
+if is_sqlite:
+    engine = create_engine(db_url, connect_args={"check_same_thread": False})
+else:
+    engine = create_engine(
+        db_url,
+        pool_pre_ping=True,
+        pool_size=5,
+        max_overflow=10,
+    )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
