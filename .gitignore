@@ -1,23 +1,28 @@
 # Python
-backend/.venv/
-backend/__pycache__/
-backend/**/__pycache__/
-backend/**/*.pyc
-backend/aer_holdings.db
-backend/*.db
-backend/.env
+__pycache__/
+**/__pycache__/
+**/*.pyc
+*.db
+.venv/
+venv/
 
 # Next.js
-frontend/node_modules/
-frontend/.next/
-frontend/out/
-frontend/.env.local
-frontend/*.tsbuildinfo
-frontend/next-env.d.ts
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
 
-# General
+# Environment
+.env
+.env.local
+.env*.local
+
+# Misc
 .DS_Store
 *.pem
-.env
-venv/
+
+# Stray dirs from old structure
 C:/
+frontend/
+backend/

@@ -10,18 +10,18 @@ from fastapi.responses import JSONResponse
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 
-from app.core.config import settings
-from app.database import SessionLocal, create_tables
+from api.core.config import settings
+from api.database import SessionLocal, create_tables
 
 # Import models so SQLAlchemy knows about them before create_tables is called
-from app.models.admin import Admin
-from app.models.booking import Booking  # noqa: F401
-from app.models.message import Message  # noqa: F401
-from app.models.testimonial import Testimonial  # noqa: F401
-from app.models.service import Service
-from app.models.settings import SiteSettings  # noqa: F401
+from api.models.admin import Admin
+from api.models.booking import Booking  # noqa: F401
+from api.models.message import Message  # noqa: F401
+from api.models.testimonial import Testimonial  # noqa: F401
+from api.models.service import Service
+from api.models.settings import SiteSettings  # noqa: F401
 
-from app.routes import auth, bookings, messages, testimonials, services, settings as settings_router
+from api.routes import auth, bookings, messages, testimonials, services, settings as settings_router
 
 logger = logging.getLogger(__name__)
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

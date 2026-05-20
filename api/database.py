@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from typing import Generator
 
-from app.core.config import settings
+from api.core.config import settings
 
 # SQLite connection args: check_same_thread=False required for SQLite with FastAPI
 connect_args = {}

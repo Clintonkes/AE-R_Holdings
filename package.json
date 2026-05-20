@@ -1,6 +1,6 @@
 {
-  "name": "aer-holdings-frontend",
-  "version": "0.1.0",
+  "name": "aer-holdings",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -2,11 +2,11 @@ from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
-from app.database import get_db
-from app.models.message import Message
-from app.models.admin import Admin
-from app.auth.dependencies import get_current_admin
-from app.schemas.message import MessageCreate, MessageUpdate, MessageResponse
+from api.database import get_db
+from api.models.message import Message
+from api.models.admin import Admin
+from api.auth.dependencies import get_current_admin
+from api.schemas.message import MessageCreate, MessageUpdate, MessageResponse
 
 router = APIRouter(tags=["Messages"])
 

@@ -4,10 +4,10 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
 
-from app.database import get_db
-from app.models.settings import SiteSettings
-from app.models.admin import Admin
-from app.auth.dependencies import get_current_admin
+from api.database import get_db
+from api.models.settings import SiteSettings
+from api.models.admin import Admin
+from api.auth.dependencies import get_current_admin
 
 router = APIRouter(prefix="/api/admin", tags=["Settings"])
 

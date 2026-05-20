@@ -2,11 +2,11 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
-from app.database import get_db
-from app.models.service import Service
-from app.models.admin import Admin
-from app.auth.dependencies import get_current_admin
-from app.schemas.service import ServiceCreate, ServiceUpdate, ServiceResponse
+from api.database import get_db
+from api.models.service import Service
+from api.models.admin import Admin
+from api.auth.dependencies import get_current_admin
+from api.schemas.service import ServiceCreate, ServiceUpdate, ServiceResponse
 
 router = APIRouter(tags=["Services"])
 

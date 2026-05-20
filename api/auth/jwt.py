@@ -3,7 +3,7 @@ from typing import Optional, Dict, Any
 
 from jose import JWTError, jwt
 
-from app.core.config import settings
+from api.core.config import settings
 
 
 def create_access_token(data: Dict[str, Any]) -> str:

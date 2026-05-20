@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime
 from datetime import datetime
 
-from app.database import Base
+from api.database import Base
 
 
 class SiteSettings(Base):

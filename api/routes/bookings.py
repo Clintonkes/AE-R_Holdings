@@ -3,11 +3,11 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from datetime import datetime
 
-from app.database import get_db
-from app.models.booking import Booking
-from app.models.admin import Admin
-from app.auth.dependencies import get_current_admin
-from app.schemas.booking import BookingCreate, BookingUpdate, BookingResponse
+from api.database import get_db
+from api.models.booking import Booking
+from api.models.admin import Admin
+from api.auth.dependencies import get_current_admin
+from api.schemas.booking import BookingCreate, BookingUpdate, BookingResponse
 
 router = APIRouter(prefix="/api/bookings", tags=["Bookings"])
 

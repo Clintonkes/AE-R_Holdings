@@ -19,14 +19,14 @@ import random
 # Ensure the backend package is on the path when running as a script
 sys.path.insert(0, os.path.dirname(__file__))
 
-from app.database import SessionLocal, create_tables
-from app.models.admin import Admin  # noqa: F401 — ensure table registered
-from app.models.booking import Booking
-from app.models.message import Message
-from app.models.testimonial import Testimonial
-from app.models.service import Service  # noqa: F401
-from app.models.settings import SiteSettings  # noqa: F401
-from app.main import seed_default_admin, seed_services
+from api.database import SessionLocal, create_tables
+from api.models.admin import Admin  # noqa: F401 — ensure table registered
+from api.models.booking import Booking
+from api.models.message import Message
+from api.models.testimonial import Testimonial
+from api.models.service import Service  # noqa: F401
+from api.models.settings import SiteSettings  # noqa: F401
+from api.main import seed_default_admin, seed_services
 
 
 def seed_sample_bookings(db) -> int:

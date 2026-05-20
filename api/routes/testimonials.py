@@ -2,11 +2,11 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
-from app.database import get_db
-from app.models.testimonial import Testimonial
-from app.models.admin import Admin
-from app.auth.dependencies import get_current_admin
-from app.schemas.testimonial import (
+from api.database import get_db
+from api.models.testimonial import Testimonial
+from api.models.admin import Admin
+from api.auth.dependencies import get_current_admin
+from api.schemas.testimonial import (
     TestimonialCreate,
     TestimonialUpdate,
     TestimonialResponse,
