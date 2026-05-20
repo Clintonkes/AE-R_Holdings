@@ -8,6 +8,7 @@ RUN npm ci
 COPY app ./app
 COPY components ./components
 COPY lib ./lib
+COPY public ./public
 COPY next.config.mjs tailwind.config.ts tsconfig.json postcss.config.mjs .eslintrc.json ./
 
 ARG NEXT_PUBLIC_API_URL=http://localhost:8000
