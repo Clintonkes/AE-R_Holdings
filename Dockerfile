@@ -20,8 +20,8 @@ RUN npm run build
 # ── Stage 2: Final monolithic image ──────────────────────────────────────────
 FROM python:3.11-slim AS runner
 
-# Install Node.js 20
-RUN apt-get update && apt-get install -y curl && \
+# Install bash, Node.js 20
+RUN apt-get update && apt-get install -y curl bash && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
