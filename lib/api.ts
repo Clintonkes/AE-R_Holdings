@@ -1,6 +1,8 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+// In production: empty string → same-origin → Next.js rewrites proxy to FastAPI.
+// In local dev:  NEXT_PUBLIC_API_URL=http://localhost:8000 hits FastAPI directly.
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? '';
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
