@@ -1,0 +1,23 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/aer_holdings.db
+backend/*.db
+backend/.env
+
+# Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+
+# General
+.DS_Store
+*.pem
+.env
+venv/
+C:/
