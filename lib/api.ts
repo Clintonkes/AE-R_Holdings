@@ -73,7 +73,7 @@ export interface Booking {
   service_type: string;
   preferred_date: string;
   preferred_time: string;
-  property_address: string;
+  address: string;
   special_instructions?: string;
   status: 'pending' | 'approved' | 'completed' | 'cancelled';
   created_at: string;
@@ -83,10 +83,10 @@ export interface Message {
   id: string | number;
   name: string;
   email: string;
-  phone: string;
+  phone?: string;
   message: string;
   created_at: string;
-  read: boolean;
+  is_read: boolean;
 }
 
 export interface Testimonial {
@@ -136,12 +136,12 @@ export const adminLogout = async () => {
 
 // Admin Bookings
 export const getBookings = async (params?: { status?: string; page?: number }) => {
-  const response = await apiClient.get('/api/admin/bookings', { params });
+  const response = await apiClient.get('/api/bookings', { params });
   return response.data;
 };
 
 export const getBookingById = async (id: string | number) => {
-  const response = await apiClient.get(`/api/admin/bookings/${id}`);
+  const response = await apiClient.get(`/api/bookings/${id}`);
   return response.data;
 };
 
@@ -149,28 +149,28 @@ export const updateBookingStatus = async (
   id: string | number,
   status: 'pending' | 'approved' | 'completed' | 'cancelled'
 ) => {
-  const response = await apiClient.patch(`/api/admin/bookings/${id}/status`, { status });
+  const response = await apiClient.patch(`/api/bookings/${id}`, { status });
   return response.data;
 };
 
 export const deleteBooking = async (id: string | number) => {
-  const response = await apiClient.delete(`/api/admin/bookings/${id}`);
+  const response = await apiClient.delete(`/api/bookings/${id}`);
   return response.data;
 };
 
 // Admin Messages
 export const getMessages = async () => {
-  const response = await apiClient.get('/api/admin/messages');
+  const response = await apiClient.get('/api/messages');
   return response.data;
 };
 
 export const markMessageRead = async (id: string | number) => {
-  const response = await apiClient.patch(`/api/admin/messages/${id}/read`);
+  const response = await apiClient.patch(`/api/messages/${id}`, { is_read: true });
   return response.data;
 };
 
 export const deleteMessage = async (id: string | number) => {
-  const response = await apiClient.delete(`/api/admin/messages/${id}`);
+  const response = await apiClient.delete(`/api/messages/${id}`);
   return response.data;
 };
 

@@ -75,6 +75,7 @@ export default function ContactPage() {
       setForm(initialForm);
       setToastType('success');
       setShowToast(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (err: unknown) {
       setStatus('error');
       const message =

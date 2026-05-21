@@ -17,6 +17,7 @@ import {
   Mail,
   Phone,
   FileText,
+  Menu,
 } from 'lucide-react';
 import { AdminSidebar } from '@/components/admin/AdminSidebar';
 import { AdminDashboard } from '@/components/admin/AdminDashboard';
@@ -68,7 +69,7 @@ function MessagesSection() {
     setActionLoading(`read-${id}`);
     try {
       await markMessageRead(id);
-      setMessages((prev) => prev.map((m) => (m.id === id ? { ...m, read: true } : m)));
+      setMessages((prev) => prev.map((m) => (m.id === id ? { ...m, is_read: true } : m)));
     } catch {
       // silent fail
     } finally {
@@ -123,7 +124,7 @@ function MessagesSection() {
         ) : (
           <div className="divide-y divide-slate-50">
             {messages.map((msg) => (
-              <div key={msg.id} className={`p-5 hover:bg-slate-50/50 transition-colors ${!msg.read ? 'bg-[#F0F9FF]/30' : ''}`}>
+              <div key={msg.id} className={`p-5 hover:bg-slate-50/50 transition-colors ${!msg.is_read ? 'bg-[#F0F9FF]/30' : ''}`}>
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-3 flex-1 min-w-0">
                     <div className="w-10 h-10 bg-[#0EA5E9]/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -132,7 +133,7 @@ function MessagesSection() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <p className="font-semibold text-[#0B192C] text-sm">{msg.name}</p>
-                        {!msg.read && (
+                        {!msg.is_read && (
                           <span className="w-2 h-2 bg-[#0EA5E9] rounded-full flex-shrink-0" />
                         )}
                       </div>
@@ -151,7 +152,7 @@ function MessagesSection() {
                     >
                       <Eye className="w-4 h-4" />
                     </button>
-                    {!msg.read && (
+                    {!msg.is_read && (
                       <button
                         onClick={() => handleMarkRead(msg.id)}
                         disabled={actionLoading === `read-${msg.id}`}
@@ -367,6 +368,7 @@ export default function AdminDashboardPage() {
   const router = useRouter();
   const [activeSection, setActiveSection] = useState<Section>('overview');
   const [authChecked, setAuthChecked] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('aer_admin_token');
@@ -440,10 +442,32 @@ export default function AdminDashboardPage() {
       <AdminSidebar
         activeSection={activeSection}
         onSectionChange={(section) => setActiveSection(section as Section)}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
       />
-      <main className="flex-1 overflow-y-auto">
-        {renderSection()}
-      </main>
+      <div className="flex-1 flex flex-col overflow-hidden">
+        {/* Mobile top bar */}
+        <div className="md:hidden flex items-center gap-3 px-4 py-3 bg-[#0B192C] border-b border-slate-800 flex-shrink-0">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+            aria-label="Open menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 bg-[#0EA5E9] rounded-lg flex items-center justify-center">
+              <span className="text-[#0B192C] font-bold text-xs">AE</span>
+            </div>
+            <span className="text-white font-bold text-sm">
+              AE<span className="text-[#0EA5E9]">$</span>R Admin
+            </span>
+          </div>
+        </div>
+        <main className="flex-1 overflow-y-auto">
+          {renderSection()}
+        </main>
+      </div>
     </div>
   );
 }

@@ -382,7 +382,7 @@ export function AdminDashboard() {
                 { label: 'Service', value: selectedBooking.service_type },
                 { label: 'Preferred Date', value: selectedBooking.preferred_date },
                 { label: 'Preferred Time', value: selectedBooking.preferred_time },
-                { label: 'Property Address', value: selectedBooking.property_address },
+                { label: 'Property Address', value: selectedBooking.address },
               ].map(({ label, value }) => (
                 <div key={label} className="flex justify-between py-2 border-b border-slate-50">
                   <span className="text-sm font-medium text-slate-500">{label}</span>

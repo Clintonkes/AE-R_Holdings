@@ -21,7 +21,7 @@ from api.models.testimonial import Testimonial  # noqa: F401
 from api.models.service import Service
 from api.models.settings import SiteSettings  # noqa: F401
 
-from api.routes import auth, bookings, messages, testimonials, services, settings as settings_router
+from api.routes import auth, bookings, messages, testimonials, services, settings as settings_router, admin as admin_router
 
 logger = logging.getLogger(__name__)
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -220,6 +220,7 @@ app.include_router(messages.router)
 app.include_router(testimonials.router)
 app.include_router(services.router)
 app.include_router(settings_router.router)
+app.include_router(admin_router.router)
 
 
 # ---------------------------------------------------------------------------
