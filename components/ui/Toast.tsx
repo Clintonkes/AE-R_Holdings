@@ -35,9 +35,12 @@ export function Toast({ type, title, message, onClose, duration = 5000 }: ToastP
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-50 flex items-start gap-3 max-w-sm w-full rounded-2xl shadow-2xl p-4 pr-5 border transition-all duration-300 ${
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      } ${
+      className={`fixed top-16 md:top-20 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transition-all duration-300 ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+      }`}
+    >
+    <div
+      className={`flex items-start gap-3 max-w-lg w-full rounded-2xl shadow-2xl p-4 pr-5 border pointer-events-auto ${
         isSuccess
           ? 'bg-white border-[#0EA5E9]/30 shadow-[#0EA5E9]/10'
           : 'bg-white border-red-200 shadow-red-100'
@@ -75,6 +78,7 @@ export function Toast({ type, title, message, onClose, duration = 5000 }: ToastP
       >
         <X className="w-3.5 h-3.5 text-slate-400" />
       </button>
+    </div>
     </div>
   );
 }

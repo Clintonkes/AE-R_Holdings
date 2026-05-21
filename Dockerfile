@@ -11,8 +11,6 @@ COPY lib ./lib
 COPY public ./public
 COPY next.config.mjs tailwind.config.ts tsconfig.json postcss.config.mjs .eslintrc.json ./
 
-ARG NEXT_PUBLIC_API_URL=http://localhost:8000
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
