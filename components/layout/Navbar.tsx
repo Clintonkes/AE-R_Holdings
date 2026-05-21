@@ -48,19 +48,19 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#0F172A] shadow-xl shadow-black/20'
-            : 'bg-[#0F172A]'
+            ? 'bg-[#0B192C] shadow-xl shadow-black/20'
+            : 'bg-[#0B192C]'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-9 h-9 bg-[#2DD4BF] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Sparkles className="w-5 h-5 text-[#0F172A]" />
+              <div className="w-9 h-9 bg-[#0EA5E9] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Sparkles className="w-5 h-5 text-[#0B192C]" />
               </div>
               <span className="text-white font-bold text-xl tracking-tight">
-                AE<span className="text-[#2DD4BF]">$</span>R Holdings
+                AE<span className="text-[#0EA5E9]">$</span>R Holdings
               </span>
             </Link>
 
@@ -72,7 +72,7 @@ export function Navbar() {
                   href={link.href}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                     pathname === link.href
-                      ? 'text-[#2DD4BF] bg-white/10'
+                      ? 'text-[#0EA5E9] bg-white/10'
                       : 'text-slate-300 hover:text-white hover:bg-white/10'
                   }`}
                 >
@@ -85,7 +85,7 @@ export function Navbar() {
             <div className="flex items-center gap-3">
               <Link
                 href="/booking"
-                className="hidden md:inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0F172A] font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-[#14B8A6] hover:scale-105 transition-all duration-300"
+                className="hidden md:inline-flex items-center gap-2 bg-[#0EA5E9] text-[#0B192C] font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-[#0284C7] hover:scale-105 transition-all duration-300"
               >
                 Book Now
               </Link>
@@ -103,7 +103,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-[#1E293B] border-t border-slate-700 animate-slide-down">
+          <div className="md:hidden bg-[#1E2E42] border-t border-slate-700 animate-slide-down">
             <nav className="px-4 pt-4 pb-6 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
@@ -111,7 +111,7 @@ export function Navbar() {
                   href={link.href}
                   className={`px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 ${
                     pathname === link.href
-                      ? 'text-[#2DD4BF] bg-white/10'
+                      ? 'text-[#0EA5E9] bg-white/10'
                       : 'text-slate-300 hover:text-white hover:bg-white/10'
                   }`}
                 >
@@ -120,7 +120,7 @@ export function Navbar() {
               ))}
               <Link
                 href="/booking"
-                className="mt-4 bg-[#2DD4BF] text-[#0F172A] font-semibold px-6 py-3 rounded-full text-center hover:bg-[#14B8A6] transition-all duration-300"
+                className="mt-4 bg-[#0EA5E9] text-[#0B192C] font-semibold px-6 py-3 rounded-full text-center hover:bg-[#0284C7] transition-all duration-300"
               >
                 Book Now
               </Link>

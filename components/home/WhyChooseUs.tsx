@@ -25,9 +25,9 @@ const benefits = [
     title: 'Flexible Scheduling',
     description: 'Book at your convenience — mornings, evenings, weekends. We work around your schedule, not the other way around.',
     badge: '7 Days a Week',
-    badgeColor: 'bg-[#2DD4BF]/10 text-[#2DD4BF]',
-    iconBg: 'bg-[#2DD4BF]/10',
-    iconColor: 'text-[#2DD4BF]',
+    badgeColor: 'bg-[#0EA5E9]/10 text-[#0EA5E9]',
+    iconBg: 'bg-[#0EA5E9]/10',
+    iconColor: 'text-[#0EA5E9]',
   },
   {
     icon: DollarSign,
@@ -50,17 +50,17 @@ const highlights = [
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-[#EAF6FF] py-20 md:py-28">
+    <section className="bg-[#F0F9FF] py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Content */}
           <div>
-            <span className="inline-block bg-white text-[#2DD4BF] text-sm font-semibold px-4 py-1.5 rounded-full mb-5 shadow-sm">
+            <span className="inline-block bg-white text-[#0EA5E9] text-sm font-semibold px-4 py-1.5 rounded-full mb-5 shadow-sm">
               Why AE$R Holdings?
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0F172A] leading-tight mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B192C] leading-tight mb-6">
               The Smarter Choice for{' '}
-              <span className="text-[#2DD4BF]">Cleaner Spaces</span>
+              <span className="text-[#0EA5E9]">Cleaner Spaces</span>
             </h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-8">
               We combine professional expertise with genuine care to deliver cleaning services
@@ -79,7 +79,7 @@ export function WhyChooseUs() {
 
             <Link
               href="/booking"
-              className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0F172A] font-bold px-8 py-4 rounded-full hover:bg-[#14B8A6] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#2DD4BF]/20"
+              className="inline-flex items-center gap-2 bg-[#0EA5E9] text-[#0B192C] font-bold px-8 py-4 rounded-full hover:bg-[#0284C7] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#0EA5E9]/20"
             >
               Get Started Today
               <ArrowRight className="w-5 h-5" />
@@ -101,7 +101,7 @@ export function WhyChooseUs() {
                     {badge}
                   </span>
                 </div>
-                <h3 className="text-base font-bold text-[#0F172A] mb-2">{title}</h3>
+                <h3 className="text-base font-bold text-[#0B192C] mb-2">{title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{description}</p>
               </div>
             ))}

@@ -10,17 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          DEFAULT: '#0F172A',
-          light: '#1E293B',
-          lighter: '#334155',
+          DEFAULT: '#0B192C',
+          light: '#1E2E42',
+          lighter: '#334E68',
         },
         teal: {
-          DEFAULT: '#2DD4BF',
-          dark: '#14B8A6',
-          light: '#99F6E4',
+          DEFAULT: '#0EA5E9',
+          dark: '#0284C7',
+          light: '#E0F2FE',
         },
         sky: {
-          light: '#EAF6FF',
+          light: '#F0F9FF',
         },
         green: {
           success: '#22C55E',

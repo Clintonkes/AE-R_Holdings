@@ -25,22 +25,22 @@ export function Hero() {
           sizes="100vw"
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/95 via-[#0F172A]/85 to-[#0F172A]/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B192C]/95 via-[#0B192C]/85 to-[#0B192C]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/80 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 flex flex-col items-start">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-[#2DD4BF]/15 border border-[#2DD4BF]/30 text-[#2DD4BF] px-4 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
-          <Star className="w-4 h-4 fill-[#2DD4BF]" />
+        <div className="inline-flex items-center gap-2 bg-[#0EA5E9]/15 border border-[#0EA5E9]/30 text-[#0EA5E9] px-4 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
+          <Star className="w-4 h-4 fill-[#0EA5E9]" />
           New Jersey&apos;s Trusted Cleaning Service
         </div>
 
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight max-w-4xl mb-6">
           Professional Cleaning{' '}
-          <span className="text-[#2DD4BF]">Services</span> You Can Trust
+          <span className="text-[#0EA5E9]">Services</span> You Can Trust
         </h1>
 
         {/* Subheadline */}
@@ -53,14 +53,14 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-16">
           <Link
             href="/booking"
-            className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0F172A] font-bold px-8 py-4 rounded-full text-base hover:bg-[#14B8A6] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#2DD4BF]/25"
+            className="inline-flex items-center gap-2 bg-[#0EA5E9] text-[#0B192C] font-bold px-8 py-4 rounded-full text-base hover:bg-[#0284C7] hover:scale-105 transition-all duration-300 shadow-lg shadow-[#0EA5E9]/25"
           >
             Book a Service
             <ArrowRight className="w-5 h-5" />
           </Link>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-4 rounded-full text-base hover:bg-white hover:text-[#0F172A] transition-all duration-300"
+            className="inline-flex items-center gap-2 border-2 border-white text-white font-bold px-8 py-4 rounded-full text-base hover:bg-white hover:text-[#0B192C] transition-all duration-300"
           >
             <Phone className="w-5 h-5" />
             Request a Quote
@@ -75,8 +75,8 @@ export function Hero() {
               className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 text-center hover:bg-white/20 transition-all duration-300"
             >
               <div className="flex justify-center mb-2">
-                <div className="w-10 h-10 bg-[#2DD4BF]/20 rounded-xl flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-[#2DD4BF]" />
+                <div className="w-10 h-10 bg-[#0EA5E9]/20 rounded-xl flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-[#0EA5E9]" />
                 </div>
               </div>
               <p className="text-2xl font-bold text-white">{value}</p>

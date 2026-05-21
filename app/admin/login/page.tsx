@@ -74,21 +74,21 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#0B192C] via-[#1E2E42] to-[#0B192C] flex items-center justify-center px-4 py-12">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-[#2DD4BF]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#2DD4BF]/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-20 w-72 h-72 bg-[#0EA5E9]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#0EA5E9]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex w-16 h-16 bg-[#2DD4BF] rounded-2xl items-center justify-center mb-4">
-            <Sparkles className="w-8 h-8 text-[#0F172A]" />
+          <div className="inline-flex w-16 h-16 bg-[#0EA5E9] rounded-2xl items-center justify-center mb-4">
+            <Sparkles className="w-8 h-8 text-[#0B192C]" />
           </div>
           <h1 className="text-2xl font-bold text-white">
-            AE<span className="text-[#2DD4BF]">$</span>R Holdings
+            AE<span className="text-[#0EA5E9]">$</span>R Holdings
           </h1>
           <p className="text-slate-400 text-sm mt-1">Admin Panel</p>
         </div>
@@ -96,8 +96,8 @@ export default function AdminLoginPage() {
         {/* Login Card */}
         <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-2xl">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 bg-[#2DD4BF]/10 rounded-xl flex items-center justify-center">
-              <ShieldCheck className="w-5 h-5 text-[#2DD4BF]" />
+            <div className="w-10 h-10 bg-[#0EA5E9]/10 rounded-xl flex items-center justify-center">
+              <ShieldCheck className="w-5 h-5 text-[#0EA5E9]" />
             </div>
             <div>
               <h2 className="text-white font-bold text-lg">Welcome Back</h2>
@@ -129,7 +129,7 @@ export default function AdminLoginPage() {
                 }}
                 placeholder="admin@aerholdings.com"
                 autoComplete="email"
-                className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#2DD4BF] focus:border-transparent transition-all ${
+                className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent transition-all ${
                   emailError ? 'border-red-500/50' : 'border-white/10'
                 }`}
               />
@@ -152,7 +152,7 @@ export default function AdminLoginPage() {
                   }}
                   placeholder="••••••••"
                   autoComplete="current-password"
-                  className={`w-full bg-white/5 border rounded-xl px-4 py-3 pr-12 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#2DD4BF] focus:border-transparent transition-all ${
+                  className={`w-full bg-white/5 border rounded-xl px-4 py-3 pr-12 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent transition-all ${
                     passwordError ? 'border-red-500/50' : 'border-white/10'
                   }`}
                 />
@@ -176,7 +176,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#2DD4BF] text-[#0F172A] font-bold py-3.5 rounded-xl hover:bg-[#14B8A6] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 mt-6"
+              className="w-full bg-[#0EA5E9] text-[#0B192C] font-bold py-3.5 rounded-xl hover:bg-[#0284C7] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 mt-6"
             >
               {loading ? (
                 <>
@@ -200,7 +200,7 @@ export default function AdminLoginPage() {
         <div className="text-center mt-6">
           <a
             href="/"
-            className="text-slate-400 text-sm hover:text-[#2DD4BF] transition-colors"
+            className="text-slate-400 text-sm hover:text-[#0EA5E9] transition-colors"
           >
             ← Back to AE$R Holdings website
           </a>

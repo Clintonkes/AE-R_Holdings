@@ -23,7 +23,7 @@ const services = [
     title: 'Deep Cleaning',
     description:
       'Intensive top-to-bottom cleaning that reaches every corner. Perfect for seasonal refreshes or when your space needs extra attention.',
-    color: 'text-[#2DD4BF]',
+    color: 'text-[#0EA5E9]',
     bg: 'bg-teal-50',
   },
   {
@@ -58,10 +58,10 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-block bg-[#EAF6FF] text-[#2DD4BF] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+          <span className="inline-block bg-[#F0F9FF] text-[#0EA5E9] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             What We Offer
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0B192C] leading-tight">
             Comprehensive Cleaning Services
           </h2>
           <p className="text-slate-500 mt-4 leading-relaxed">
@@ -80,11 +80,11 @@ export function Services() {
               <div className={`w-14 h-14 ${bg} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
                 <Icon className={`w-7 h-7 ${color}`} />
               </div>
-              <h3 className="text-xl font-bold text-[#0F172A] mb-3">{title}</h3>
+              <h3 className="text-xl font-bold text-[#0B192C] mb-3">{title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-5">{description}</p>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-1.5 text-[#2DD4BF] font-semibold text-sm hover:gap-2.5 transition-all duration-200"
+                className="inline-flex items-center gap-1.5 text-[#0EA5E9] font-semibold text-sm hover:gap-2.5 transition-all duration-200"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />
@@ -97,7 +97,7 @@ export function Services() {
         <div className="text-center mt-12">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 bg-[#0F172A] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#1E293B] hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-[#0B192C] text-white font-semibold px-8 py-4 rounded-full hover:bg-[#1E2E42] hover:scale-105 transition-all duration-300"
           >
             View All Services
             <ArrowRight className="w-5 h-5" />

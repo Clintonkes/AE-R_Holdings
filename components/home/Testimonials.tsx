@@ -98,7 +98,7 @@ export function Testimonials() {
           <span className="inline-block bg-amber-50 text-amber-600 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
             Client Reviews
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#0B192C] leading-tight">
             What Our Clients Say
           </h2>
           <p className="text-slate-500 mt-4 leading-relaxed">
@@ -114,8 +114,8 @@ export function Testimonials() {
               className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8 border border-slate-100 flex flex-col"
             >
               {/* Quote Icon */}
-              <div className="w-10 h-10 bg-[#EAF6FF] rounded-xl flex items-center justify-center mb-5">
-                <Quote className="w-5 h-5 text-[#2DD4BF]" />
+              <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center mb-5">
+                <Quote className="w-5 h-5 text-[#0EA5E9]" />
               </div>
 
               {/* Rating */}
@@ -128,14 +128,14 @@ export function Testimonials() {
 
               {/* Customer info */}
               <div className="mt-6 pt-5 border-t border-slate-100 flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#2DD4BF] to-[#14B8A6] rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#0EA5E9] to-[#0284C7] rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                   {testimonial.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-[#0F172A] font-semibold text-sm">{testimonial.name}</p>
+                  <p className="text-[#0B192C] font-semibold text-sm">{testimonial.name}</p>
                   <p className="text-slate-400 text-xs">{testimonial.location}</p>
                 </div>
-                <span className="ml-auto bg-[#EAF6FF] text-[#2DD4BF] text-xs px-2.5 py-1 rounded-full font-medium">
+                <span className="ml-auto bg-[#F0F9FF] text-[#0EA5E9] text-xs px-2.5 py-1 rounded-full font-medium">
                   {testimonial.service}
                 </span>
               </div>
@@ -148,7 +148,7 @@ export function Testimonials() {
           <button
             onClick={handlePrev}
             disabled={!canGoPrev}
-            className="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-[#2DD4BF] hover:text-[#2DD4BF] transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-[#0EA5E9] hover:text-[#0EA5E9] transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label="Previous testimonials"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -162,7 +162,7 @@ export function Testimonials() {
                 onClick={() => setStartIndex(Math.min(i, testimonials.length - visibleCount))}
                 className={`rounded-full transition-all duration-200 ${
                   i >= startIndex && i < startIndex + visibleCount
-                    ? 'w-6 h-2.5 bg-[#2DD4BF]'
+                    ? 'w-6 h-2.5 bg-[#0EA5E9]'
                     : 'w-2.5 h-2.5 bg-slate-200 hover:bg-slate-300'
                 }`}
                 aria-label={`Go to testimonial ${i + 1}`}
@@ -173,7 +173,7 @@ export function Testimonials() {
           <button
             onClick={handleNext}
             disabled={!canGoNext}
-            className="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-[#2DD4BF] hover:text-[#2DD4BF] transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-[#0EA5E9] hover:text-[#0EA5E9] transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label="Next testimonials"
           >
             <ChevronRight className="w-5 h-5" />

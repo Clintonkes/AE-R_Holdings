@@ -81,9 +81,9 @@ export default function ContactPage() {
   return (
     <div className="bg-white">
       {/* Hero Banner */}
-      <section className="bg-[#0F172A] py-16 md:py-24">
+      <section className="bg-[#0B192C] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block bg-[#2DD4BF]/15 text-[#2DD4BF] text-sm font-semibold px-4 py-2 rounded-full mb-5">
+          <span className="inline-block bg-[#0EA5E9]/15 text-[#0EA5E9] text-sm font-semibold px-4 py-2 rounded-full mb-5">
             Get In Touch
           </span>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Contact AE$R Holdings</h1>
@@ -94,25 +94,25 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 md:py-24 bg-[#EAF6FF]">
+      <section className="py-16 md:py-24 bg-[#F0F9FF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {/* Contact Info - Left Column */}
             <div className="lg:col-span-2 space-y-5">
               {/* Contact Details Card */}
-              <div className="bg-[#0F172A] rounded-2xl p-6 md:p-8">
+              <div className="bg-[#0B192C] rounded-2xl p-6 md:p-8">
                 <h2 className="text-white font-bold text-xl mb-6">Contact Information</h2>
                 <div className="space-y-5">
                   <a
                     href="tel:19739372289"
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-10 h-10 bg-[#2DD4BF]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#2DD4BF]/20 transition-colors">
-                      <Phone className="w-5 h-5 text-[#2DD4BF]" />
+                    <div className="w-10 h-10 bg-[#0EA5E9]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#0EA5E9]/20 transition-colors">
+                      <Phone className="w-5 h-5 text-[#0EA5E9]" />
                     </div>
                     <div>
                       <p className="text-slate-400 text-xs uppercase tracking-wider mb-0.5">Phone</p>
-                      <p className="text-white font-semibold group-hover:text-[#2DD4BF] transition-colors">
+                      <p className="text-white font-semibold group-hover:text-[#0EA5E9] transition-colors">
                         1(973)937-2289
                       </p>
                     </div>
@@ -122,20 +122,20 @@ export default function ContactPage() {
                     href="mailto:info@aerholdings.com"
                     className="flex items-start gap-4 group"
                   >
-                    <div className="w-10 h-10 bg-[#2DD4BF]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#2DD4BF]/20 transition-colors">
-                      <Mail className="w-5 h-5 text-[#2DD4BF]" />
+                    <div className="w-10 h-10 bg-[#0EA5E9]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#0EA5E9]/20 transition-colors">
+                      <Mail className="w-5 h-5 text-[#0EA5E9]" />
                     </div>
                     <div>
                       <p className="text-slate-400 text-xs uppercase tracking-wider mb-0.5">Email</p>
-                      <p className="text-white font-semibold group-hover:text-[#2DD4BF] transition-colors">
+                      <p className="text-white font-semibold group-hover:text-[#0EA5E9] transition-colors">
                         info@aerholdings.com
                       </p>
                     </div>
                   </a>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#2DD4BF]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-[#2DD4BF]" />
+                    <div className="w-10 h-10 bg-[#0EA5E9]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-[#0EA5E9]" />
                     </div>
                     <div>
                       <p className="text-slate-400 text-xs uppercase tracking-wider mb-0.5">Address</p>
@@ -147,8 +147,8 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#2DD4BF]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-5 h-5 text-[#2DD4BF]" />
+                    <div className="w-10 h-10 bg-[#0EA5E9]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-[#0EA5E9]" />
                     </div>
                     <div>
                       <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Business Hours</p>
@@ -164,10 +164,10 @@ export default function ContactPage() {
 
               {/* Map Placeholder */}
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
-                <div className="relative h-48 bg-[#EAF6FF] flex items-center justify-center">
+                <div className="relative h-48 bg-[#F0F9FF] flex items-center justify-center">
                   <div className="text-center">
-                    <MapPin className="w-10 h-10 text-[#2DD4BF] mx-auto mb-2" />
-                    <p className="text-[#0F172A] font-semibold text-sm">5 Sylvan Street</p>
+                    <MapPin className="w-10 h-10 text-[#0EA5E9] mx-auto mb-2" />
+                    <p className="text-[#0B192C] font-semibold text-sm">5 Sylvan Street</p>
                     <p className="text-slate-500 text-xs">Rutherford, NJ 07070</p>
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export default function ContactPage() {
                     href="https://maps.google.com/?q=5+Sylvan+Street+Rutherford+NJ+07070"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-center text-[#2DD4BF] text-sm font-semibold hover:underline"
+                    className="block text-center text-[#0EA5E9] text-sm font-semibold hover:underline"
                   >
                     Open in Google Maps →
                   </a>
@@ -187,7 +187,7 @@ export default function ContactPage() {
             {/* Contact Form - Right Column */}
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl shadow-sm p-8">
-                <h2 className="text-xl font-bold text-[#0F172A] mb-2">Send Us a Message</h2>
+                <h2 className="text-xl font-bold text-[#0B192C] mb-2">Send Us a Message</h2>
                 <p className="text-slate-500 text-sm mb-6">
                   We typically respond within a few hours during business hours.
                 </p>
@@ -283,7 +283,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full bg-[#2DD4BF] text-[#0F172A] font-bold py-4 rounded-xl hover:bg-[#14B8A6] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full bg-[#0EA5E9] text-[#0B192C] font-bold py-4 rounded-xl hover:bg-[#0284C7] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {status === 'loading' ? (
                       <>

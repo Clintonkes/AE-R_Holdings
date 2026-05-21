@@ -165,8 +165,8 @@ NEXT_PUBLIC_API_URL=https://your-app.up.railway.app
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| Navy | `#0F172A` | Primary text, headers, nav |
-| White | `#FFFFFF` | Backgrounds |
-| Sky Blue | `#EAF6FF` | Section backgrounds |
-| Teal | `#2DD4BF` | Buttons, accents, CTAs |
+| Midnight Navy | `#0B192C` | Primary text, headers, sidebars, dark sections |
+| White | `#FFFFFF` | Main backgrounds, cards |
+| Sky Blue | `#0EA5E9` | Buttons, accents, CTAs, icons |
+| Soft Ice Blue | `#F0F9FF` | Soft section background tints |
 | Green | `#22C55E` | Success states, eco badges |

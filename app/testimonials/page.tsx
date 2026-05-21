@@ -160,8 +160,8 @@ export default function TestimonialsPage() {
   return (
     <div className="bg-white">
       {/* Hero Banner */}
-      <section className="bg-[#0F172A] py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]" />
+      <section className="bg-[#0B192C] py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B192C] via-[#1E2E42] to-[#0B192C]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block bg-amber-400/15 text-amber-400 text-sm font-semibold px-4 py-2 rounded-full mb-5">
             Client Reviews
@@ -184,7 +184,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Filter Bar */}
-      <section className="bg-[#EAF6FF] py-6 border-b border-sky-100">
+      <section className="bg-[#F0F9FF] py-6 border-b border-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 overflow-x-auto pb-2 hide-scrollbar">
             <Filter className="w-4 h-4 text-slate-400 flex-shrink-0" />
@@ -195,8 +195,8 @@ export default function TestimonialsPage() {
                 onClick={() => setActiveFilter(filter)}
                 className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeFilter === filter
-                    ? 'bg-[#2DD4BF] text-[#0F172A]'
-                    : 'bg-white text-slate-600 hover:bg-[#2DD4BF]/10 hover:text-[#2DD4BF]'
+                    ? 'bg-[#0EA5E9] text-[#0B192C]'
+                    : 'bg-white text-slate-600 hover:bg-[#0EA5E9]/10 hover:text-[#0EA5E9]'
                 }`}
               >
                 {filter}
@@ -221,8 +221,8 @@ export default function TestimonialsPage() {
                 className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-slate-100 flex flex-col group hover:-translate-y-1"
               >
                 {/* Quote Icon */}
-                <div className="w-10 h-10 bg-[#EAF6FF] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#2DD4BF]/10 transition-colors">
-                  <Quote className="w-5 h-5 text-[#2DD4BF]" />
+                <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#0EA5E9]/10 transition-colors">
+                  <Quote className="w-5 h-5 text-[#0EA5E9]" />
                 </div>
 
                 {/* Rating */}
@@ -235,17 +235,17 @@ export default function TestimonialsPage() {
 
                 {/* Customer info */}
                 <div className="mt-6 pt-5 border-t border-slate-100 flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-[#2DD4BF] to-[#14B8A6] rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  <div className="w-10 h-10 bg-gradient-to-br from-[#0EA5E9] to-[#0284C7] rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[#0F172A] font-semibold text-sm">{testimonial.name}</p>
+                    <p className="text-[#0B192C] font-semibold text-sm">{testimonial.name}</p>
                     <p className="text-slate-400 text-xs">{testimonial.location}</p>
                   </div>
                 </div>
 
                 <div className="mt-3 flex items-center justify-between">
-                  <span className="bg-[#EAF6FF] text-[#2DD4BF] text-xs px-2.5 py-1 rounded-full font-medium">
+                  <span className="bg-[#F0F9FF] text-[#0EA5E9] text-xs px-2.5 py-1 rounded-full font-medium">
                     {testimonial.service}
                   </span>
                   <span className="text-slate-300 text-xs">{testimonial.date}</span>
@@ -260,7 +260,7 @@ export default function TestimonialsPage() {
               <p className="text-slate-400 text-lg font-medium">No reviews found for this filter.</p>
               <button
                 onClick={() => setActiveFilter('All Services')}
-                className="mt-4 text-[#2DD4BF] font-medium hover:underline"
+                className="mt-4 text-[#0EA5E9] font-medium hover:underline"
               >
                 View all reviews
               </button>

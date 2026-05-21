@@ -93,7 +93,7 @@ function MessagesSection() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-48">
-        <Loader2 className="w-7 h-7 text-[#2DD4BF] animate-spin" />
+        <Loader2 className="w-7 h-7 text-[#0EA5E9] animate-spin" />
       </div>
     );
   }
@@ -102,12 +102,12 @@ function MessagesSection() {
     <div className="p-6 lg:p-8">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F172A]">Messages</h1>
+          <h1 className="text-2xl font-bold text-[#0B192C]">Messages</h1>
           <p className="text-slate-500 text-sm mt-1">Client contact messages</p>
         </div>
         <button
           onClick={fetchMessages}
-          className="flex items-center gap-2 px-4 py-2 bg-[#EAF6FF] text-[#2DD4BF] rounded-xl text-sm font-medium hover:bg-[#2DD4BF]/20 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-[#F0F9FF] text-[#0EA5E9] rounded-xl text-sm font-medium hover:bg-[#0EA5E9]/20 transition-colors"
         >
           <RefreshCw className="w-4 h-4" />
           Refresh
@@ -123,17 +123,17 @@ function MessagesSection() {
         ) : (
           <div className="divide-y divide-slate-50">
             {messages.map((msg) => (
-              <div key={msg.id} className={`p-5 hover:bg-slate-50/50 transition-colors ${!msg.read ? 'bg-[#EAF6FF]/30' : ''}`}>
+              <div key={msg.id} className={`p-5 hover:bg-slate-50/50 transition-colors ${!msg.read ? 'bg-[#F0F9FF]/30' : ''}`}>
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-3 flex-1 min-w-0">
-                    <div className="w-10 h-10 bg-[#2DD4BF]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-[#2DD4BF] font-bold text-sm">{msg.name.charAt(0)}</span>
+                    <div className="w-10 h-10 bg-[#0EA5E9]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-[#0EA5E9] font-bold text-sm">{msg.name.charAt(0)}</span>
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <p className="font-semibold text-[#0F172A] text-sm">{msg.name}</p>
+                        <p className="font-semibold text-[#0B192C] text-sm">{msg.name}</p>
                         {!msg.read && (
-                          <span className="w-2 h-2 bg-[#2DD4BF] rounded-full flex-shrink-0" />
+                          <span className="w-2 h-2 bg-[#0EA5E9] rounded-full flex-shrink-0" />
                         )}
                       </div>
                       <div className="flex items-center gap-3 text-xs text-slate-400 mb-2">
@@ -182,28 +182,28 @@ function MessagesSection() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
           <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full">
             <div className="p-6 border-b border-slate-100 flex items-center justify-between">
-              <h3 className="text-lg font-bold text-[#0F172A]">Message from {selected.name}</h3>
+              <h3 className="text-lg font-bold text-[#0B192C]">Message from {selected.name}</h3>
               <button onClick={() => setSelected(null)} className="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-slate-200 transition-colors">
                 <XCircle className="w-4 h-4 text-slate-500" />
               </button>
             </div>
             <div className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div><p className="text-xs text-slate-400 mb-1">Name</p><p className="text-sm font-semibold text-[#0F172A]">{selected.name}</p></div>
-                <div><p className="text-xs text-slate-400 mb-1">Email</p><p className="text-sm font-semibold text-[#0F172A]">{selected.email}</p></div>
+                <div><p className="text-xs text-slate-400 mb-1">Name</p><p className="text-sm font-semibold text-[#0B192C]">{selected.name}</p></div>
+                <div><p className="text-xs text-slate-400 mb-1">Email</p><p className="text-sm font-semibold text-[#0B192C]">{selected.email}</p></div>
                 {selected.phone && (
-                  <div><p className="text-xs text-slate-400 mb-1">Phone</p><p className="text-sm font-semibold text-[#0F172A]">{selected.phone}</p></div>
+                  <div><p className="text-xs text-slate-400 mb-1">Phone</p><p className="text-sm font-semibold text-[#0B192C]">{selected.phone}</p></div>
                 )}
               </div>
               <div>
                 <p className="text-xs text-slate-400 mb-2">Message</p>
-                <div className="bg-slate-50 rounded-xl p-4 text-sm text-[#0F172A] leading-relaxed">{selected.message}</div>
+                <div className="bg-slate-50 rounded-xl p-4 text-sm text-[#0B192C] leading-relaxed">{selected.message}</div>
               </div>
             </div>
             <div className="p-6 border-t border-slate-100 flex gap-3">
               <a
                 href={`mailto:${selected.email}`}
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#2DD4BF] text-[#0F172A] font-semibold rounded-xl hover:bg-[#14B8A6] transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[#0EA5E9] text-[#0B192C] font-semibold rounded-xl hover:bg-[#0284C7] transition-colors"
               >
                 <Mail className="w-4 h-4" /> Reply via Email
               </a>
@@ -258,7 +258,7 @@ function TestimonialsSection() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-48">
-        <Loader2 className="w-7 h-7 text-[#2DD4BF] animate-spin" />
+        <Loader2 className="w-7 h-7 text-[#0EA5E9] animate-spin" />
       </div>
     );
   }
@@ -267,10 +267,10 @@ function TestimonialsSection() {
     <div className="p-6 lg:p-8">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F172A]">Testimonials</h1>
+          <h1 className="text-2xl font-bold text-[#0B192C]">Testimonials</h1>
           <p className="text-slate-500 text-sm mt-1">Manage client reviews and testimonials</p>
         </div>
-        <button onClick={fetchTestimonials} className="flex items-center gap-2 px-4 py-2 bg-[#EAF6FF] text-[#2DD4BF] rounded-xl text-sm font-medium hover:bg-[#2DD4BF]/20 transition-colors">
+        <button onClick={fetchTestimonials} className="flex items-center gap-2 px-4 py-2 bg-[#F0F9FF] text-[#0EA5E9] rounded-xl text-sm font-medium hover:bg-[#0EA5E9]/20 transition-colors">
           <RefreshCw className="w-4 h-4" /> Refresh
         </button>
       </div>
@@ -294,7 +294,7 @@ function TestimonialsSection() {
               {testimonials.map((t) => (
                 <tr key={t.id} className="hover:bg-slate-50/50 transition-colors">
                   <td className="px-6 py-4">
-                    <p className="text-sm font-semibold text-[#0F172A]">{t.customer_name}</p>
+                    <p className="text-sm font-semibold text-[#0B192C]">{t.customer_name}</p>
                     <p className="text-xs text-slate-400">{t.location}</p>
                   </td>
                   <td className="px-6 py-4 text-sm text-slate-600">{t.service_type}</td>
@@ -347,14 +347,14 @@ function PlaceholderSection({ title, icon: Icon, description }: { title: string;
   return (
     <div className="p-6 lg:p-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-[#0F172A]">{title}</h1>
+        <h1 className="text-2xl font-bold text-[#0B192C]">{title}</h1>
         <p className="text-slate-500 text-sm mt-1">{description}</p>
       </div>
       <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-12 text-center">
-        <div className="w-16 h-16 bg-[#EAF6FF] rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <Icon className="w-8 h-8 text-[#2DD4BF]" />
+        <div className="w-16 h-16 bg-[#F0F9FF] rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <Icon className="w-8 h-8 text-[#0EA5E9]" />
         </div>
-        <p className="text-[#0F172A] font-semibold text-lg mb-2">{title}</p>
+        <p className="text-[#0B192C] font-semibold text-lg mb-2">{title}</p>
         <p className="text-slate-400 text-sm max-w-sm mx-auto">
           This section is ready for your content. Connect your backend API to populate data here.
         </p>
@@ -379,9 +379,9 @@ export default function AdminDashboardPage() {
 
   if (!authChecked) {
     return (
-      <div className="min-h-screen bg-[#EAF6FF] flex items-center justify-center">
+      <div className="min-h-screen bg-[#F0F9FF] flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <Loader2 className="w-8 h-8 text-[#2DD4BF] animate-spin" />
+          <Loader2 className="w-8 h-8 text-[#0EA5E9] animate-spin" />
           <p className="text-slate-500 text-sm">Verifying access...</p>
         </div>
       </div>

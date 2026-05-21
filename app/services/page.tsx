@@ -76,8 +76,8 @@ const services = [
     ],
     pricing: 'Starting from $280 per visit',
     iconBg: 'bg-teal-50',
-    iconColor: 'text-[#2DD4BF]',
-    highlight: 'bg-[#2DD4BF]',
+    iconColor: 'text-[#0EA5E9]',
+    highlight: 'bg-[#0EA5E9]',
   },
   {
     icon: ArrowLeftRight,
@@ -145,11 +145,11 @@ export default function ServicesPage() {
   return (
     <div className="bg-white">
       {/* Hero Banner */}
-      <section className="bg-[#0F172A] py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]" />
-        <div className="absolute top-0 right-0 w-80 h-80 bg-[#2DD4BF]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+      <section className="bg-[#0B192C] py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B192C] via-[#1E2E42] to-[#0B192C]" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-[#0EA5E9]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block bg-[#2DD4BF]/15 text-[#2DD4BF] text-sm font-semibold px-4 py-2 rounded-full mb-5">
+          <span className="inline-block bg-[#0EA5E9]/15 text-[#0EA5E9] text-sm font-semibold px-4 py-2 rounded-full mb-5">
             What We Offer
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -179,14 +179,14 @@ export default function ServicesPage() {
                     <Icon className={`w-7 h-7 ${iconColor}`} />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-[#0F172A]">{title}</h2>
+                    <h2 className="text-2xl font-bold text-[#0B192C]">{title}</h2>
                     <p className={`text-sm font-medium ${iconColor}`}>{tagline}</p>
                   </div>
                 </div>
                 <p className="text-slate-600 leading-relaxed mb-6">{description}</p>
 
                 <div className="mb-6">
-                  <h3 className="font-semibold text-[#0F172A] mb-3 flex items-center gap-2">
+                  <h3 className="font-semibold text-[#0B192C] mb-3 flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-[#22C55E]" />
                     What&apos;s Included
                   </h3>
@@ -203,11 +203,11 @@ export default function ServicesPage() {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-5 border-t border-slate-100 gap-4">
                   <div>
                     <p className="text-xs text-slate-400 uppercase tracking-wider mb-0.5">Pricing</p>
-                    <p className="text-[#0F172A] font-bold text-lg">{pricing}</p>
+                    <p className="text-[#0B192C] font-bold text-lg">{pricing}</p>
                   </div>
                   <Link
                     href="/booking"
-                    className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0F172A] font-bold px-6 py-3 rounded-full hover:bg-[#14B8A6] hover:scale-105 transition-all duration-300"
+                    className="inline-flex items-center gap-2 bg-[#0EA5E9] text-[#0B192C] font-bold px-6 py-3 rounded-full hover:bg-[#0284C7] hover:scale-105 transition-all duration-300"
                   >
                     Book This Service
                     <ArrowRight className="w-4 h-4" />
@@ -236,9 +236,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Pricing Note */}
-      <section className="bg-[#EAF6FF] py-16">
+      <section className="bg-[#F0F9FF] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0B192C] mb-4">
             Transparent Pricing, No Surprises
           </h2>
           <p className="text-slate-600 leading-relaxed mb-8">
@@ -249,14 +249,14 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/booking"
-              className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0F172A] font-bold px-8 py-4 rounded-full hover:bg-[#14B8A6] hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-[#0EA5E9] text-[#0B192C] font-bold px-8 py-4 rounded-full hover:bg-[#0284C7] hover:scale-105 transition-all duration-300"
             >
               Request Free Quote
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a
               href="tel:19739372289"
-              className="inline-flex items-center gap-2 border-2 border-[#0F172A] text-[#0F172A] font-bold px-8 py-4 rounded-full hover:bg-[#0F172A] hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-2 border-2 border-[#0B192C] text-[#0B192C] font-bold px-8 py-4 rounded-full hover:bg-[#0B192C] hover:text-white transition-all duration-300"
             >
               <Phone className="w-5 h-5" />
               Call for Pricing

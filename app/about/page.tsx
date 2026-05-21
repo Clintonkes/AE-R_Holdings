@@ -24,8 +24,8 @@ const values = [
     title: 'Our Mission',
     description:
       'To deliver consistently exceptional cleaning services that create healthier, more comfortable living and working spaces for every client we serve across New Jersey.',
-    color: 'text-[#2DD4BF]',
-    bg: 'bg-[#2DD4BF]/10',
+    color: 'text-[#0EA5E9]',
+    bg: 'bg-[#0EA5E9]/10',
   },
   {
     icon: Eye,
@@ -103,15 +103,15 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Banner */}
-      <section className="bg-[#0F172A] py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#2DD4BF]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+      <section className="bg-[#0B192C] py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B192C] via-[#1E2E42] to-[#0B192C]" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#0EA5E9]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block bg-[#2DD4BF]/15 text-[#2DD4BF] text-sm font-semibold px-4 py-2 rounded-full mb-5">
+          <span className="inline-block bg-[#0EA5E9]/15 text-[#0EA5E9] text-sm font-semibold px-4 py-2 rounded-full mb-5">
             Our Story
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            About AE<span className="text-[#2DD4BF]">$</span>R Holdings
+            About AE<span className="text-[#0EA5E9]">$</span>R Holdings
           </h1>
           <p className="text-slate-300 text-lg max-w-2xl mx-auto">
             A decade of excellence, thousands of happy clients, and an unwavering commitment
@@ -126,10 +126,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Text */}
             <div>
-              <span className="inline-block bg-[#EAF6FF] text-[#2DD4BF] text-sm font-semibold px-4 py-1.5 rounded-full mb-5">
+              <span className="inline-block bg-[#F0F9FF] text-[#0EA5E9] text-sm font-semibold px-4 py-1.5 rounded-full mb-5">
                 Who We Are
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] leading-tight mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0B192C] leading-tight mb-6">
                 Built on Trust, Delivered with Excellence
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
@@ -158,9 +158,9 @@ export default function AboutPage() {
                   { icon: Star, value: '5.0', label: 'Avg Rating' },
                   { icon: Award, value: '10+', label: 'Years Experience' },
                 ].map(({ icon: Icon, value, label }) => (
-                  <div key={label} className="bg-[#EAF6FF] rounded-2xl p-4 text-center">
-                    <Icon className="w-6 h-6 text-[#2DD4BF] mx-auto mb-2" />
-                    <p className="text-2xl font-bold text-[#0F172A]">{value}</p>
+                  <div key={label} className="bg-[#F0F9FF] rounded-2xl p-4 text-center">
+                    <Icon className="w-6 h-6 text-[#0EA5E9] mx-auto mb-2" />
+                    <p className="text-2xl font-bold text-[#0B192C]">{value}</p>
                     <p className="text-xs text-slate-500 mt-0.5">{label}</p>
                   </div>
                 ))}
@@ -176,20 +176,20 @@ export default function AboutPage() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/40 to-transparent" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission, Vision & Values */}
-      <section className="bg-[#EAF6FF] py-20 md:py-28">
+      <section className="bg-[#F0F9FF] py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="inline-block bg-white text-[#2DD4BF] text-sm font-semibold px-4 py-1.5 rounded-full mb-4 shadow-sm">
+            <span className="inline-block bg-white text-[#0EA5E9] text-sm font-semibold px-4 py-1.5 rounded-full mb-4 shadow-sm">
               What Drives Us
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A]">Mission & Values</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B192C]">Mission & Values</h2>
             <p className="text-slate-500 mt-4">
               Our core principles guide every decision, every interaction, and every job we undertake.
             </p>
@@ -201,7 +201,7 @@ export default function AboutPage() {
                 <div className={`w-14 h-14 ${bg} rounded-2xl flex items-center justify-center mb-6`}>
                   <Icon className={`w-7 h-7 ${color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-[#0F172A] mb-3">{title}</h3>
+                <h3 className="text-xl font-bold text-[#0B192C] mb-3">{title}</h3>
                 <p className="text-slate-500 leading-relaxed text-sm">{description}</p>
               </div>
             ))}
@@ -213,10 +213,10 @@ export default function AboutPage() {
       <section className="py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="inline-block bg-[#EAF6FF] text-[#2DD4BF] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
+            <span className="inline-block bg-[#F0F9FF] text-[#0EA5E9] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">
               The People Behind the Clean
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A]">Meet Our Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B192C]">Meet Our Team</h2>
             <p className="text-slate-500 mt-4">
               A dedicated group of professionals committed to delivering the highest standard of service.
             </p>
@@ -228,14 +228,14 @@ export default function AboutPage() {
                 key={member.name}
                 className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group border border-slate-100"
               >
-                <div className="relative h-48 bg-gradient-to-br from-[#0F172A] to-[#1E293B] flex items-center justify-center">
-                  <div className="w-20 h-20 bg-[#2DD4BF] rounded-full flex items-center justify-center text-[#0F172A] font-bold text-2xl group-hover:scale-110 transition-transform duration-300">
+                <div className="relative h-48 bg-gradient-to-br from-[#0B192C] to-[#1E2E42] flex items-center justify-center">
+                  <div className="w-20 h-20 bg-[#0EA5E9] rounded-full flex items-center justify-center text-[#0B192C] font-bold text-2xl group-hover:scale-110 transition-transform duration-300">
                     {member.initials}
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-bold text-[#0F172A] text-base">{member.name}</h3>
-                  <p className="text-[#2DD4BF] text-sm font-medium mb-2">{member.role}</p>
+                  <h3 className="font-bold text-[#0B192C] text-base">{member.name}</h3>
+                  <p className="text-[#0EA5E9] text-sm font-medium mb-2">{member.role}</p>
                   <p className="text-slate-500 text-xs leading-relaxed">{member.description}</p>
                 </div>
               </div>
@@ -245,11 +245,11 @@ export default function AboutPage() {
       </section>
 
       {/* Our Process */}
-      <section className="bg-[#0F172A] py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#2DD4BF]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+      <section className="bg-[#0B192C] py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#0EA5E9]/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="inline-block bg-[#2DD4BF]/15 text-[#2DD4BF] text-sm font-semibold px-4 py-2 rounded-full mb-4">
+            <span className="inline-block bg-[#0EA5E9]/15 text-[#0EA5E9] text-sm font-semibold px-4 py-2 rounded-full mb-4">
               How It Works
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white">Our Simple Process</h2>
@@ -263,10 +263,10 @@ export default function AboutPage() {
               <div key={step.step} className="relative">
                 {/* Connector line */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-[#2DD4BF]/20 z-0 -translate-y-0.5" />
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-[#0EA5E9]/20 z-0 -translate-y-0.5" />
                 )}
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 relative z-10">
-                  <div className="w-14 h-14 bg-[#2DD4BF] rounded-2xl flex items-center justify-center text-[#0F172A] font-bold text-lg mb-5">
+                  <div className="w-14 h-14 bg-[#0EA5E9] rounded-2xl flex items-center justify-center text-[#0B192C] font-bold text-lg mb-5">
                     {step.step}
                   </div>
                   <h3 className="text-white font-bold text-base mb-3">{step.title}</h3>
@@ -279,7 +279,7 @@ export default function AboutPage() {
           <div className="text-center mt-12">
             <Link
               href="/booking"
-              className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0F172A] font-bold px-8 py-4 rounded-full hover:bg-[#14B8A6] hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-[#0EA5E9] text-[#0B192C] font-bold px-8 py-4 rounded-full hover:bg-[#0284C7] hover:scale-105 transition-all duration-300"
             >
               Book Your First Clean
               <ArrowRight className="w-5 h-5" />
@@ -302,7 +302,7 @@ export default function AboutPage() {
                 <div className="flex justify-center mb-2">
                   <CheckCircle className="w-8 h-8 text-[#22C55E]" />
                 </div>
-                <p className="font-bold text-[#0F172A] text-lg">{value}</p>
+                <p className="font-bold text-[#0B192C] text-lg">{value}</p>
                 <p className="text-slate-500 text-sm">{label}</p>
               </div>
             ))}

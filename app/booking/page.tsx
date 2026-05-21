@@ -133,9 +133,9 @@ export default function BookingPage() {
   return (
     <div className="bg-white">
       {/* Hero Banner */}
-      <section className="bg-[#0F172A] py-16 md:py-24">
+      <section className="bg-[#0B192C] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block bg-[#2DD4BF]/15 text-[#2DD4BF] text-sm font-semibold px-4 py-2 rounded-full mb-5">
+          <span className="inline-block bg-[#0EA5E9]/15 text-[#0EA5E9] text-sm font-semibold px-4 py-2 rounded-full mb-5">
             Schedule a Service
           </span>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -148,46 +148,46 @@ export default function BookingPage() {
       </section>
 
       {/* Booking Form Section */}
-      <section className="py-16 md:py-24 bg-[#EAF6FF]">
+      <section className="py-16 md:py-24 bg-[#F0F9FF]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Sidebar Info */}
             <div className="space-y-5">
               <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-[#0F172A] mb-4 text-base">Contact Information</h3>
+                <h3 className="font-bold text-[#0B192C] mb-4 text-base">Contact Information</h3>
                 <div className="space-y-4">
                   <a
                     href="tel:19739372289"
                     className="flex items-center gap-3 group"
                   >
-                    <div className="w-10 h-10 bg-[#EAF6FF] rounded-xl flex items-center justify-center group-hover:bg-[#2DD4BF]/10 transition-colors">
-                      <Phone className="w-5 h-5 text-[#2DD4BF]" />
+                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center group-hover:bg-[#0EA5E9]/10 transition-colors">
+                      <Phone className="w-5 h-5 text-[#0EA5E9]" />
                     </div>
                     <div>
                       <p className="text-xs text-slate-400">Phone</p>
-                      <p className="text-sm font-semibold text-[#0F172A] group-hover:text-[#2DD4BF] transition-colors">
+                      <p className="text-sm font-semibold text-[#0B192C] group-hover:text-[#0EA5E9] transition-colors">
                         1(973)937-2289
                       </p>
                     </div>
                   </a>
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-[#EAF6FF] rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-[#2DD4BF]" />
+                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-[#0EA5E9]" />
                     </div>
                     <div>
                       <p className="text-xs text-slate-400">Address</p>
-                      <p className="text-sm font-semibold text-[#0F172A]">
+                      <p className="text-sm font-semibold text-[#0B192C]">
                         5 Sylvan Street,<br />Rutherford, NJ 07070
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-[#EAF6FF] rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-5 h-5 text-[#2DD4BF]" />
+                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-[#0EA5E9]" />
                     </div>
                     <div>
                       <p className="text-xs text-slate-400">Business Hours</p>
-                      <p className="text-sm font-semibold text-[#0F172A]">
+                      <p className="text-sm font-semibold text-[#0B192C]">
                         Mon–Sat: 8am–6pm<br />Sun: 10am–4pm
                       </p>
                     </div>
@@ -195,7 +195,7 @@ export default function BookingPage() {
                 </div>
               </div>
 
-              <div className="bg-[#0F172A] rounded-2xl p-6">
+              <div className="bg-[#0B192C] rounded-2xl p-6">
                 <h3 className="font-bold text-white mb-3 text-base">What to Expect</h3>
                 <ul className="space-y-2">
                   {[
@@ -205,7 +205,7 @@ export default function BookingPage() {
                     '100% satisfaction guarantee',
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-slate-300 text-sm">
-                      <CheckCircle className="w-4 h-4 text-[#2DD4BF] flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-[#0EA5E9] flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -216,7 +216,7 @@ export default function BookingPage() {
             {/* Form */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-sm p-8">
-                <h2 className="text-xl font-bold text-[#0F172A] mb-6">Booking Request Form</h2>
+                <h2 className="text-xl font-bold text-[#0B192C] mb-6">Booking Request Form</h2>
 
                 {/* Success Message */}
                 {status === 'success' && (
@@ -389,7 +389,7 @@ export default function BookingPage() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full bg-[#2DD4BF] text-[#0F172A] font-bold py-4 rounded-xl hover:bg-[#14B8A6] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full bg-[#0EA5E9] text-[#0B192C] font-bold py-4 rounded-xl hover:bg-[#0284C7] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {status === 'loading' ? (
                       <>

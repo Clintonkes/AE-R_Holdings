@@ -25,7 +25,7 @@ import {
 
 const statusConfig: Record<string, { label: string; color: string }> = {
   pending: { label: 'Pending', color: 'bg-yellow-100 text-yellow-700' },
-  approved: { label: 'Approved', color: 'bg-[#2DD4BF]/10 text-[#14B8A6]' },
+  approved: { label: 'Approved', color: 'bg-[#0EA5E9]/10 text-[#0284C7]' },
   completed: { label: 'Completed', color: 'bg-green-100 text-green-700' },
   cancelled: { label: 'Cancelled', color: 'bg-red-100 text-red-600' },
 };
@@ -58,7 +58,7 @@ function StatCard({
           </span>
         )}
       </div>
-      <p className="text-3xl font-bold text-[#0F172A] mb-1">{value}</p>
+      <p className="text-3xl font-bold text-[#0B192C] mb-1">{value}</p>
       <p className="text-slate-500 text-sm">{label}</p>
     </div>
   );
@@ -138,7 +138,7 @@ export function AdminDashboard() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="flex flex-col items-center gap-3">
-          <RefreshCw className="w-8 h-8 text-[#2DD4BF] animate-spin" />
+          <RefreshCw className="w-8 h-8 text-[#0EA5E9] animate-spin" />
           <p className="text-slate-500">Loading dashboard...</p>
         </div>
       </div>
@@ -150,14 +150,14 @@ export function AdminDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F172A]">Dashboard Overview</h1>
+          <h1 className="text-2xl font-bold text-[#0B192C]">Dashboard Overview</h1>
           <p className="text-slate-500 text-sm mt-1">
             Welcome back! Here&apos;s what&apos;s happening with your business.
           </p>
         </div>
         <button
           onClick={() => { fetchStats(); fetchBookings(); }}
-          className="flex items-center gap-2 px-4 py-2 bg-[#EAF6FF] text-[#2DD4BF] rounded-xl text-sm font-medium hover:bg-[#2DD4BF]/20 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-[#F0F9FF] text-[#0EA5E9] rounded-xl text-sm font-medium hover:bg-[#0EA5E9]/20 transition-colors"
         >
           <RefreshCw className="w-4 h-4" />
           Refresh
@@ -196,8 +196,8 @@ export function AdminDashboard() {
           value={stats?.messages ?? 0}
           label="New Messages"
           change="+5%"
-          iconBg="bg-[#2DD4BF]/10"
-          iconColor="text-[#14B8A6]"
+          iconBg="bg-[#0EA5E9]/10"
+          iconColor="text-[#0284C7]"
         />
         <StatCard
           icon={DollarSign}
@@ -211,23 +211,23 @@ export function AdminDashboard() {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-gradient-to-br from-[#2DD4BF] to-[#14B8A6] rounded-2xl p-5 text-[#0F172A]">
+        <div className="bg-gradient-to-br from-[#0EA5E9] to-[#0284C7] rounded-2xl p-5 text-[#0B192C]">
           <div className="flex items-center gap-3 mb-3">
             <Users className="w-6 h-6" />
             <span className="font-semibold">New Booking</span>
           </div>
           <p className="text-sm opacity-80">View and manage incoming booking requests</p>
         </div>
-        <div className="bg-gradient-to-br from-[#0F172A] to-[#1E293B] rounded-2xl p-5 text-white">
+        <div className="bg-gradient-to-br from-[#0B192C] to-[#1E2E42] rounded-2xl p-5 text-white">
           <div className="flex items-center gap-3 mb-3">
-            <MessageSquare className="w-6 h-6 text-[#2DD4BF]" />
+            <MessageSquare className="w-6 h-6 text-[#0EA5E9]" />
             <span className="font-semibold">Messages</span>
           </div>
           <p className="text-sm opacity-70">Respond to client inquiries and messages</p>
         </div>
-        <div className="bg-[#EAF6FF] rounded-2xl p-5 text-[#0F172A]">
+        <div className="bg-[#F0F9FF] rounded-2xl p-5 text-[#0B192C]">
           <div className="flex items-center gap-3 mb-3">
-            <TrendingUp className="w-6 h-6 text-[#2DD4BF]" />
+            <TrendingUp className="w-6 h-6 text-[#0EA5E9]" />
             <span className="font-semibold">Reports</span>
           </div>
           <p className="text-sm text-slate-600">Track performance and revenue metrics</p>
@@ -238,11 +238,11 @@ export function AdminDashboard() {
       <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
         <div className="p-6 border-b border-slate-100 flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-bold text-[#0F172A]">Recent Bookings</h2>
+            <h2 className="text-lg font-bold text-[#0B192C]">Recent Bookings</h2>
             <p className="text-slate-500 text-sm mt-0.5">Manage and track all booking requests</p>
           </div>
           {bookingsLoading && (
-            <RefreshCw className="w-5 h-5 text-[#2DD4BF] animate-spin" />
+            <RefreshCw className="w-5 h-5 text-[#0EA5E9] animate-spin" />
           )}
         </div>
 
@@ -275,7 +275,7 @@ export function AdminDashboard() {
                     <td className="px-6 py-4 text-sm text-slate-500">#{booking.id}</td>
                     <td className="px-6 py-4">
                       <div>
-                        <p className="text-sm font-semibold text-[#0F172A]">{booking.full_name}</p>
+                        <p className="text-sm font-semibold text-[#0B192C]">{booking.full_name}</p>
                         <p className="text-xs text-slate-400">{booking.email}</p>
                       </div>
                     </td>
@@ -311,7 +311,7 @@ export function AdminDashboard() {
                           <button
                             onClick={() => handleStatusChange(booking.id, 'approved')}
                             disabled={actionLoading === `status-${booking.id}`}
-                            className="w-8 h-8 bg-teal-50 text-[#14B8A6] rounded-lg flex items-center justify-center hover:bg-teal-100 transition-colors disabled:opacity-50"
+                            className="w-8 h-8 bg-teal-50 text-[#0284C7] rounded-lg flex items-center justify-center hover:bg-teal-100 transition-colors disabled:opacity-50"
                             title="Approve booking"
                           >
                             <CheckCircle className="w-4 h-4" />
@@ -364,7 +364,7 @@ export function AdminDashboard() {
           <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-slate-100 flex items-center justify-between">
               <div>
-                <h3 className="text-lg font-bold text-[#0F172A]">Booking Details</h3>
+                <h3 className="text-lg font-bold text-[#0B192C]">Booking Details</h3>
                 <p className="text-slate-500 text-sm">#{selectedBooking.id}</p>
               </div>
               <button
@@ -386,13 +386,13 @@ export function AdminDashboard() {
               ].map(({ label, value }) => (
                 <div key={label} className="flex justify-between py-2 border-b border-slate-50">
                   <span className="text-sm font-medium text-slate-500">{label}</span>
-                  <span className="text-sm text-[#0F172A] font-semibold text-right max-w-xs">{value}</span>
+                  <span className="text-sm text-[#0B192C] font-semibold text-right max-w-xs">{value}</span>
                 </div>
               ))}
               {selectedBooking.special_instructions && (
                 <div className="py-2">
                   <p className="text-sm font-medium text-slate-500 mb-2">Special Instructions</p>
-                  <p className="text-sm text-[#0F172A] bg-slate-50 rounded-xl p-3">
+                  <p className="text-sm text-[#0B192C] bg-slate-50 rounded-xl p-3">
                     {selectedBooking.special_instructions}
                   </p>
                 </div>
@@ -411,7 +411,7 @@ export function AdminDashboard() {
             <div className="p-6 border-t border-slate-100">
               <button
                 onClick={() => setSelectedBooking(null)}
-                className="w-full px-4 py-3 bg-[#0F172A] text-white rounded-xl font-semibold hover:bg-[#1E293B] transition-colors"
+                className="w-full px-4 py-3 bg-[#0B192C] text-white rounded-xl font-semibold hover:bg-[#1E2E42] transition-colors"
               >
                 Close
               </button>

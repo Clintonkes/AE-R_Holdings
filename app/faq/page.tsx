@@ -111,15 +111,15 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-slate-100 rounded-2xl overflow-hidden hover:border-[#2DD4BF]/30 transition-colors">
+    <div className="border border-slate-100 rounded-2xl overflow-hidden hover:border-[#0EA5E9]/30 transition-colors">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-5 md:p-6 text-left bg-white hover:bg-[#EAF6FF]/50 transition-colors"
+        className="w-full flex items-center justify-between p-5 md:p-6 text-left bg-white hover:bg-[#F0F9FF]/50 transition-colors"
         aria-expanded={isOpen}
       >
-        <span className="font-semibold text-[#0F172A] pr-4 text-sm md:text-base">{question}</span>
+        <span className="font-semibold text-[#0B192C] pr-4 text-sm md:text-base">{question}</span>
         <ChevronDown
-          className={`w-5 h-5 text-[#2DD4BF] flex-shrink-0 transition-transform duration-300 ${
+          className={`w-5 h-5 text-[#0EA5E9] flex-shrink-0 transition-transform duration-300 ${
             isOpen ? 'rotate-180' : ''
           }`}
         />
@@ -144,11 +144,11 @@ export default function FAQPage() {
   return (
     <div className="bg-white">
       {/* Hero Banner */}
-      <section className="bg-[#0F172A] py-20 md:py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A]" />
+      <section className="bg-[#0B192C] py-20 md:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B192C] via-[#1E2E42] to-[#0B192C]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex w-16 h-16 bg-[#2DD4BF]/10 rounded-2xl items-center justify-center mb-6 mx-auto">
-            <HelpCircle className="w-8 h-8 text-[#2DD4BF]" />
+          <div className="inline-flex w-16 h-16 bg-[#0EA5E9]/10 rounded-2xl items-center justify-center mb-6 mx-auto">
+            <HelpCircle className="w-8 h-8 text-[#0EA5E9]" />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Frequently Asked Questions
@@ -170,8 +170,8 @@ export default function FAQPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat
-                    ? 'bg-[#2DD4BF] text-[#0F172A]'
-                    : 'bg-[#EAF6FF] text-slate-600 hover:bg-[#2DD4BF]/20 hover:text-[#0F172A]'
+                    ? 'bg-[#0EA5E9] text-[#0B192C]'
+                    : 'bg-[#F0F9FF] text-slate-600 hover:bg-[#0EA5E9]/20 hover:text-[#0B192C]'
                 }`}
               >
                 {cat}
@@ -194,7 +194,7 @@ export default function FAQPage() {
           )}
 
           {/* Still Have Questions CTA */}
-          <div className="mt-16 bg-[#0F172A] rounded-3xl p-8 md:p-10 text-center">
+          <div className="mt-16 bg-[#0B192C] rounded-3xl p-8 md:p-10 text-center">
             <h2 className="text-2xl font-bold text-white mb-3">Still Have Questions?</h2>
             <p className="text-slate-400 mb-8">
               Our friendly team is available to answer any questions you have. Don&apos;t hesitate to reach out.
@@ -202,7 +202,7 @@ export default function FAQPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="tel:19739372289"
-                className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0F172A] font-bold px-6 py-3 rounded-full hover:bg-[#14B8A6] hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 bg-[#0EA5E9] text-[#0B192C] font-bold px-6 py-3 rounded-full hover:bg-[#0284C7] hover:scale-105 transition-all duration-300"
               >
                 <Phone className="w-4 h-4" />
                 Call 1(973)937-2289

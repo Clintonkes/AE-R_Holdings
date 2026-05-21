@@ -45,16 +45,16 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
 
   return (
     <>
-      <aside className="w-64 bg-[#0F172A] h-screen flex flex-col flex-shrink-0 sticky top-0">
+      <aside className="w-64 bg-[#0B192C] h-screen flex flex-col flex-shrink-0 sticky top-0">
         {/* Logo */}
         <div className="p-6 border-b border-slate-800">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 bg-[#2DD4BF] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <Sparkles className="w-5 h-5 text-[#0F172A]" />
+            <div className="w-9 h-9 bg-[#0EA5E9] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <Sparkles className="w-5 h-5 text-[#0B192C]" />
             </div>
             <div>
               <p className="text-white font-bold text-sm">
-                AE<span className="text-[#2DD4BF]">$</span>R Holdings
+                AE<span className="text-[#0EA5E9]">$</span>R Holdings
               </p>
               <p className="text-slate-400 text-xs">Admin Panel</p>
             </div>
@@ -69,7 +69,7 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
               onClick={() => onSectionChange(id)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 text-left ${
                 activeSection === id
-                  ? 'bg-[#2DD4BF] text-[#0F172A] shadow-md shadow-[#2DD4BF]/20'
+                  ? 'bg-[#0EA5E9] text-[#0B192C] shadow-md shadow-[#0EA5E9]/20'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800'
               }`}
             >
@@ -106,7 +106,7 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <h3 className="text-xl font-bold text-[#0F172A] mb-2">Confirm Logout</h3>
+            <h3 className="text-xl font-bold text-[#0B192C] mb-2">Confirm Logout</h3>
             <p className="text-slate-500 text-sm mb-6">
               Are you sure you want to logout from the admin panel? You will need to login again to access the dashboard.
             </p>
