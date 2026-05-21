@@ -6,10 +6,7 @@ import {
   LayoutDashboard,
   CalendarCheck,
   MessageSquare,
-  FileText,
   Star,
-  Wrench,
-  Settings,
   User,
   LogOut,
   Sparkles,
@@ -28,10 +25,7 @@ const navItems = [
   { id: 'overview',     label: 'Dashboard Overview', icon: LayoutDashboard },
   { id: 'bookings',     label: 'Bookings',            icon: CalendarCheck },
   { id: 'messages',     label: 'Messages',            icon: MessageSquare },
-  { id: 'quotes',       label: 'Quote Requests',      icon: FileText },
   { id: 'testimonials', label: 'Testimonials',        icon: Star },
-  { id: 'services',     label: 'Services',            icon: Wrench },
-  { id: 'settings',     label: 'Site Settings',       icon: Settings },
   { id: 'profile',      label: 'Admin Profile',       icon: User },
 ];
 

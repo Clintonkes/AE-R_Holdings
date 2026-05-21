@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Query
+from fastapi import APIRouter, Depends, HTTPException, status, Query, BackgroundTasks
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from datetime import datetime
@@ -8,6 +8,7 @@ from api.models.booking import Booking
 from api.models.admin import Admin
 from api.auth.dependencies import get_current_admin
 from api.schemas.booking import BookingCreate, BookingUpdate, BookingResponse
+from api import email as mail
 
 router = APIRouter(prefix="/api/bookings", tags=["Bookings"])
 
@@ -20,12 +21,9 @@ router = APIRouter(prefix="/api/bookings", tags=["Bookings"])
 )
 def create_booking(
     booking_data: BookingCreate,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
 ) -> Booking:
-    """
-    Submit a new cleaning service booking request (public endpoint).
-    Booking is created with status 'pending' and requires admin approval.
-    """
     now = datetime.utcnow()
     booking = Booking(
         full_name=booking_data.full_name,
@@ -43,6 +41,15 @@ def create_booking(
     db.add(booking)
     db.commit()
     db.refresh(booking)
+
+    background_tasks.add_task(
+        mail.send_booking_received,
+        full_name=booking.full_name,
+        email=booking.email,
+        service_type=booking.service_type,
+        preferred_date=booking.preferred_date,
+        preferred_time=booking.preferred_time,
+    )
     return booking
 
 
@@ -52,28 +59,21 @@ def create_booking(
     summary="List all bookings (admin)",
 )
 def list_bookings(
-    status: Optional[str] = Query(None, description="Filter by booking status"),
-    search: Optional[str] = Query(None, description="Search by name, email, or phone"),
+    status: Optional[str] = Query(None),
+    search: Optional[str] = Query(None),
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin),
 ) -> List[Booking]:
-    """
-    Retrieve all bookings. Supports optional filtering by status and full-text search
-    across customer name, email, and phone. Requires admin authentication.
-    """
     query = db.query(Booking)
-
     if status:
         query = query.filter(Booking.status == status)
-
     if search:
-        search_term = f"%{search}%"
+        term = f"%{search}%"
         query = query.filter(
-            Booking.full_name.ilike(search_term)
-            | Booking.email.ilike(search_term)
-            | Booking.phone.ilike(search_term)
+            Booking.full_name.ilike(term)
+            | Booking.email.ilike(term)
+            | Booking.phone.ilike(term)
         )
-
     return query.order_by(Booking.created_at.desc()).all()
 
 
@@ -87,15 +87,9 @@ def get_booking(
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin),
 ) -> Booking:
-    """
-    Retrieve a single booking by ID. Requires admin authentication.
-    """
     booking = db.query(Booking).filter(Booking.id == booking_id).first()
     if not booking:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Booking with id {booking_id} not found",
-        )
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Booking {booking_id} not found")
     return booking
 
 
@@ -107,19 +101,15 @@ def get_booking(
 def update_booking(
     booking_id: int,
     booking_data: BookingUpdate,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin),
 ) -> Booking:
-    """
-    Update a booking's status or admin notes. Requires admin authentication.
-    """
     booking = db.query(Booking).filter(Booking.id == booking_id).first()
     if not booking:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Booking with id {booking_id} not found",
-        )
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Booking {booking_id} not found")
 
+    old_status = booking.status
     update_data = booking_data.model_dump(exclude_unset=True)
     for field, value in update_data.items():
         setattr(booking, field, value)
@@ -127,6 +117,26 @@ def update_booking(
     booking.updated_at = datetime.utcnow()
     db.commit()
     db.refresh(booking)
+
+    new_status = booking.status
+    if new_status != old_status:
+        if new_status == "approved":
+            background_tasks.add_task(
+                mail.send_booking_approved,
+                full_name=booking.full_name,
+                email=booking.email,
+                service_type=booking.service_type,
+                preferred_date=booking.preferred_date,
+                preferred_time=booking.preferred_time,
+            )
+        elif new_status == "completed":
+            background_tasks.add_task(
+                mail.send_booking_completed,
+                full_name=booking.full_name,
+                email=booking.email,
+                service_type=booking.service_type,
+            )
+
     return booking
 
 
@@ -140,14 +150,8 @@ def delete_booking(
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin),
 ) -> None:
-    """
-    Permanently delete a booking by ID. Requires admin authentication.
-    """
     booking = db.query(Booking).filter(Booking.id == booking_id).first()
     if not booking:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Booking with id {booking_id} not found",
-        )
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Booking {booking_id} not found")
     db.delete(booking)
     db.commit()

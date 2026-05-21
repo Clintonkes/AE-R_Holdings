@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Query
+from fastapi import APIRouter, Depends, HTTPException, status, Query, BackgroundTasks
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
@@ -7,6 +7,7 @@ from api.models.message import Message
 from api.models.admin import Admin
 from api.auth.dependencies import get_current_admin
 from api.schemas.message import MessageCreate, MessageUpdate, MessageResponse
+from api import email as mail
 
 router = APIRouter(tags=["Messages"])
 
@@ -19,12 +20,9 @@ router = APIRouter(tags=["Messages"])
 )
 def submit_contact(
     message_data: MessageCreate,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
 ) -> Message:
-    """
-    Submit a contact form message (public endpoint).
-    The message is stored and marked as unread for admin review.
-    """
     message = Message(
         name=message_data.name,
         email=message_data.email,
@@ -35,6 +33,13 @@ def submit_contact(
     db.add(message)
     db.commit()
     db.refresh(message)
+
+    background_tasks.add_task(
+        mail.send_contact_received,
+        name=message.name,
+        email=message.email,
+        message=message.message,
+    )
     return message
 
 
@@ -44,14 +49,10 @@ def submit_contact(
     summary="List all messages (admin)",
 )
 def list_messages(
-    is_read: Optional[bool] = Query(None, description="Filter by read status"),
+    is_read: Optional[bool] = Query(None),
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin),
 ) -> List[Message]:
-    """
-    Retrieve all contact form messages, with optional filtering by read status.
-    Requires admin authentication.
-    """
     query = db.query(Message)
     if is_read is not None:
         query = query.filter(Message.is_read == is_read)
@@ -68,15 +69,9 @@ def get_message(
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin),
 ) -> Message:
-    """
-    Retrieve a single contact message by ID. Requires admin authentication.
-    """
     message = db.query(Message).filter(Message.id == message_id).first()
     if not message:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Message with id {message_id} not found",
-        )
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Message {message_id} not found")
     return message
 
 
@@ -88,26 +83,30 @@ def get_message(
 def update_message(
     message_id: int,
     message_data: MessageUpdate,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin),
 ) -> Message:
-    """
-    Mark a message as read and/or add an admin response.
-    Requires admin authentication.
-    """
     message = db.query(Message).filter(Message.id == message_id).first()
     if not message:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Message with id {message_id} not found",
-        )
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Message {message_id} not found")
 
+    was_unread = not message.is_read
     update_data = message_data.model_dump(exclude_unset=True)
     for field, value in update_data.items():
         setattr(message, field, value)
 
     db.commit()
     db.refresh(message)
+
+    # Send acknowledgement email when first marked as read
+    if was_unread and message.is_read:
+        background_tasks.add_task(
+            mail.send_message_acknowledged,
+            name=message.name,
+            email=message.email,
+        )
+
     return message
 
 
@@ -121,14 +120,8 @@ def delete_message(
     db: Session = Depends(get_db),
     current_admin: Admin = Depends(get_current_admin),
 ) -> None:
-    """
-    Permanently delete a contact message by ID. Requires admin authentication.
-    """
     message = db.query(Message).filter(Message.id == message_id).first()
     if not message:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Message with id {message_id} not found",
-        )
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Message {message_id} not found")
     db.delete(message)
     db.commit()

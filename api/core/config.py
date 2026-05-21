@@ -9,6 +9,10 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24  # 24 hours
     ADMIN_EMAIL: str = "admin@aerholdings.com"
     ADMIN_PASSWORD: str = "Admin@2024!"
+    RESEND_API_KEY: str = ""
+    RESEND_FROM_EMAIL: str = "AE$R Holdings <onboarding@resend.dev>"
+    ADMIN_NOTIFY_EMAIL: str = "admin@aerholdings.com"
+
     CORS_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://localhost:3001",
