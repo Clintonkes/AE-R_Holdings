@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { Phone, MapPin, Clock, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Phone, MapPin, Clock, CheckCircle, Loader2 } from 'lucide-react';
 import { createBooking, type BookingPayload } from '@/lib/api';
+import { Toast } from '@/components/ui/Toast';
 
 const serviceTypes = [
   'Residential Cleaning',
@@ -80,13 +81,14 @@ export default function BookingPage() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showToast, setShowToast] = useState(false);
+  const [toastType, setToastType] = useState<'success' | 'error'>('success');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    // Clear error on change
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -117,6 +119,8 @@ export default function BookingPage() {
       await createBooking(payload);
       setStatus('success');
       setForm(initialForm);
+      setToastType('success');
+      setShowToast(true);
     } catch (err: unknown) {
       setStatus('error');
       const message =
@@ -124,14 +128,32 @@ export default function BookingPage() {
           ? err.message
           : 'Something went wrong. Please try again or call us directly.';
       setErrorMessage(message);
+      setToastType('error');
+      setShowToast(true);
     }
   };
 
-  // Min date = today
   const today = new Date().toISOString().split('T')[0];
 
   return (
     <div className="bg-white">
+      {/* Toast Notification */}
+      {showToast && (
+        <Toast
+          type={toastType}
+          title={toastType === 'success' ? 'Booking Accepted! 🎉' : 'Submission Failed'}
+          message={
+            toastType === 'success'
+              ? 'Your booking has been received. We\'ll notify you shortly by email to confirm!'
+              : errorMessage || 'Something went wrong. Please try again.'
+          }
+          onClose={() => {
+            setShowToast(false);
+            if (status !== 'loading') setStatus('idle');
+          }}
+        />
+      )}
+
       {/* Hero Banner */}
       <section className="bg-[#0B192C] py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -151,96 +173,11 @@ export default function BookingPage() {
       <section className="py-16 md:py-24 bg-[#F0F9FF]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Sidebar Info */}
-            <div className="space-y-5">
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-[#0B192C] mb-4 text-base">Contact Information</h3>
-                <div className="space-y-4">
-                  <a
-                    href="tel:19739372289"
-                    className="flex items-center gap-3 group"
-                  >
-                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center group-hover:bg-[#0EA5E9]/10 transition-colors">
-                      <Phone className="w-5 h-5 text-[#0EA5E9]" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-400">Phone</p>
-                      <p className="text-sm font-semibold text-[#0B192C] group-hover:text-[#0EA5E9] transition-colors">
-                        1(973)937-2289
-                      </p>
-                    </div>
-                  </a>
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5 text-[#0EA5E9]" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-400">Address</p>
-                      <p className="text-sm font-semibold text-[#0B192C]">
-                        5 Sylvan Street,<br />Rutherford, NJ 07070
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-5 h-5 text-[#0EA5E9]" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-slate-400">Business Hours</p>
-                      <p className="text-sm font-semibold text-[#0B192C]">
-                        Mon–Sat: 8am–6pm<br />Sun: 10am–4pm
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-              <div className="bg-[#0B192C] rounded-2xl p-6">
-                <h3 className="font-bold text-white mb-3 text-base">What to Expect</h3>
-                <ul className="space-y-2">
-                  {[
-                    'Free quote within 24 hours',
-                    'Flexible scheduling',
-                    'Vetted & insured professionals',
-                    '100% satisfaction guarantee',
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-slate-300 text-sm">
-                      <CheckCircle className="w-4 h-4 text-[#0EA5E9] flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Form */}
-            <div className="lg:col-span-2">
+            {/* Form — spans 2 columns, comes FIRST */}
+            <div className="lg:col-span-2 order-1">
               <div className="bg-white rounded-2xl shadow-sm p-8">
                 <h2 className="text-xl font-bold text-[#0B192C] mb-6">Booking Request Form</h2>
-
-                {/* Success Message */}
-                {status === 'success' && (
-                  <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-green-700">Booking Request Submitted!</p>
-                      <p className="text-green-600 text-sm mt-0.5">
-                        We&apos;ll contact you within 24 hours to confirm your booking. Thank you for choosing AE$R Holdings!
-                      </p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Error Message */}
-                {status === 'error' && (
-                  <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6 flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-red-700">Submission Failed</p>
-                      <p className="text-red-600 text-sm mt-0.5">{errorMessage}</p>
-                    </div>
-                  </div>
-                )}
 
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
                   {/* Name & Email */}
@@ -389,7 +326,7 @@ export default function BookingPage() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full bg-[#0EA5E9] text-[#0B192C] font-bold py-4 rounded-xl hover:bg-[#0284C7] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full bg-[#0EA5E9] text-white font-bold py-4 rounded-xl hover:bg-[#0284C7] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {status === 'loading' ? (
                       <>
@@ -407,6 +344,66 @@ export default function BookingPage() {
                 </form>
               </div>
             </div>
+
+            {/* Sidebar Info — comes SECOND on desktop */}
+            <div className="space-y-5 order-2">
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-[#0B192C] mb-4 text-base">Contact Information</h3>
+                <div className="space-y-4">
+                  <a href="tel:19739372289" className="flex items-center gap-3 group">
+                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center group-hover:bg-[#0EA5E9]/10 transition-colors">
+                      <Phone className="w-5 h-5 text-[#0EA5E9]" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400">Phone</p>
+                      <p className="text-sm font-semibold text-[#0B192C] group-hover:text-[#0EA5E9] transition-colors">
+                        1(973)937-2289
+                      </p>
+                    </div>
+                  </a>
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-[#0EA5E9]" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400">Address</p>
+                      <p className="text-sm font-semibold text-[#0B192C]">
+                        5 Sylvan Street,<br />Rutherford, NJ 07070
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-[#F0F9FF] rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-[#0EA5E9]" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-400">Business Hours</p>
+                      <p className="text-sm font-semibold text-[#0B192C]">
+                        Mon–Sat: 8am–6pm<br />Sun: 10am–4pm
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#0B192C] rounded-2xl p-6">
+                <h3 className="font-bold text-white mb-3 text-base">What to Expect</h3>
+                <ul className="space-y-2">
+                  {[
+                    'Free quote within 24 hours',
+                    'Flexible scheduling',
+                    'Vetted & insured professionals',
+                    '100% satisfaction guarantee',
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-slate-300 text-sm">
+                      <CheckCircle className="w-4 h-4 text-[#0EA5E9] flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
