@@ -6,14 +6,13 @@ import { createBooking, type BookingPayload } from '@/lib/api';
 import { Toast } from '@/components/ui/Toast';
 
 const serviceTypes = [
-  'Residential Cleaning',
-  'Commercial Cleaning',
-  'Deep Cleaning',
-  'Move In Cleaning',
-  'Move Out Cleaning',
-  'Post-Construction Cleaning',
-  'Specialty Cleaning',
-  'Other',
+  { label: 'Residential Cleaning',      value: 'residential' },
+  { label: 'Commercial Cleaning',       value: 'commercial' },
+  { label: 'Deep Cleaning',             value: 'deep_cleaning' },
+  { label: 'Move In Cleaning',          value: 'move_in_out' },
+  { label: 'Move Out Cleaning',         value: 'move_in_out' },
+  { label: 'Post-Construction Cleaning',value: 'post_construction' },
+  { label: 'Specialty Cleaning',        value: 'specialty' },
 ];
 
 const timeSlots = [
@@ -31,7 +30,7 @@ interface FormState {
   service_type: string;
   preferred_date: string;
   preferred_time: string;
-  property_address: string;
+  address: string;
   special_instructions: string;
 }
 
@@ -42,7 +41,7 @@ interface FormErrors {
   service_type?: string;
   preferred_date?: string;
   preferred_time?: string;
-  property_address?: string;
+  address?: string;
 }
 
 const initialForm: FormState = {
@@ -52,7 +51,7 @@ const initialForm: FormState = {
   service_type: '',
   preferred_date: '',
   preferred_time: '',
-  property_address: '',
+  address: '',
   special_instructions: '',
 };
 
@@ -72,7 +71,7 @@ function validateForm(form: FormState): FormErrors {
   if (!form.service_type) errors.service_type = 'Please select a service type.';
   if (!form.preferred_date) errors.preferred_date = 'Please select a preferred date.';
   if (!form.preferred_time) errors.preferred_time = 'Please select a preferred time.';
-  if (!form.property_address.trim()) errors.property_address = 'Property address is required.';
+  if (!form.address.trim()) errors.address = 'Property address is required.';
   return errors;
 }
 
@@ -113,7 +112,7 @@ export default function BookingPage() {
         service_type: form.service_type,
         preferred_date: form.preferred_date,
         preferred_time: form.preferred_time,
-        property_address: form.property_address.trim(),
+        address: form.address.trim(),
         special_instructions: form.special_instructions.trim() || undefined,
       };
       await createBooking(payload);
@@ -242,7 +241,7 @@ export default function BookingPage() {
                       >
                         <option value="">Select a service...</option>
                         {serviceTypes.map((s) => (
-                          <option key={s} value={s}>{s}</option>
+                          <option key={s.value + s.label} value={s.value}>{s.label}</option>
                         ))}
                       </select>
                       {errors.service_type && (
@@ -290,18 +289,18 @@ export default function BookingPage() {
 
                   {/* Property Address */}
                   <div>
-                    <label htmlFor="property_address" className="label">Property Address *</label>
+                    <label htmlFor="address" className="label">Property Address *</label>
                     <input
-                      id="property_address"
-                      name="property_address"
+                      id="address"
+                      name="address"
                       type="text"
-                      value={form.property_address}
+                      value={form.address}
                       onChange={handleChange}
                       placeholder="123 Main St, Rutherford, NJ 07070"
-                      className={`input-field ${errors.property_address ? 'border-red-400 ring-1 ring-red-400' : ''}`}
+                      className={`input-field ${errors.address ? 'border-red-400 ring-1 ring-red-400' : ''}`}
                     />
-                    {errors.property_address && (
-                      <p className="text-red-500 text-xs mt-1">{errors.property_address}</p>
+                    {errors.address && (
+                      <p className="text-red-500 text-xs mt-1">{errors.address}</p>
                     )}
                   </div>
 

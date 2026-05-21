@@ -49,7 +49,7 @@ export interface BookingPayload {
   service_type: string;
   preferred_date: string;
   preferred_time: string;
-  property_address: string;
+  address: string;
   special_instructions?: string;
 }
 
@@ -118,9 +118,14 @@ export const submitContact = async (payload: ContactPayload) => {
   return response.data;
 };
 
-// Admin Auth
+// Admin Auth — backend uses OAuth2PasswordRequestForm (form-encoded, username field)
 export const adminLogin = async (payload: LoginPayload) => {
-  const response = await apiClient.post('/api/auth/login', payload);
+  const form = new URLSearchParams();
+  form.append('username', payload.email);
+  form.append('password', payload.password);
+  const response = await apiClient.post('/api/auth/login', form, {
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  });
   return response.data;
 };
 
