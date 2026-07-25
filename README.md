@@ -14,7 +14,7 @@ Full-stack monolithic website for **AE$R Holdings**, a premium cleaning services
 | Frontend | Next.js 14 (App Router), TypeScript, Tailwind CSS |
 | Backend | FastAPI, SQLAlchemy (SQLite), Pydantic v2 |
 | Auth | JWT (python-jose) + bcrypt |
-| Deployment | Docker (monolithic) + Railway |
+| Deployment | Docker (monolithic) + Render |
 
 ---
 
@@ -55,7 +55,7 @@ AE-R_Holdings/
 ├── tsconfig.json
 ├── Dockerfile         # Monolithic multi-stage build
 ├── docker-compose.yml
-├── railway.toml
+├── render.yaml
 ├── start.sh           # Starts both Next.js + FastAPI
 ├── seed.py            # Dev data seeder
 └── .env.example
@@ -140,23 +140,22 @@ docker-compose up --build
 
 ---
 
-## Railway Deployment
+## Render Deployment
 
-```toml
-# railway.toml (already configured)
-[build]
-builder = "DOCKERFILE"
-
-[deploy]
-startCommand = "./start.sh"
+```yaml
+# render.yaml (already configured)
+services:
+  - type: web
+    runtime: image
+    dockerfilePath: ./Dockerfile
 ```
 
-Set these environment variables on Railway:
+Set these environment variables on Render:
 ```
 SECRET_KEY=<random 256-bit key>
 ADMIN_EMAIL=admin@aerholdings.com
 ADMIN_PASSWORD=<strong password>
-NEXT_PUBLIC_API_URL=https://your-app.up.railway.app
+NEXT_PUBLIC_API_URL=https://your-app.onrender.com
 ```
 
 ---

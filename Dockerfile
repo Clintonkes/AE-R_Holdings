@@ -43,6 +43,6 @@ COPY --from=frontend-builder /build/public ./public
 COPY start.sh .
 RUN chmod +x start.sh
 
-EXPOSE 3000 8000
+EXPOSE 10000 8001
 
 CMD ["./start.sh"]

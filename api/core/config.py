@@ -12,11 +12,12 @@ class Settings(BaseSettings):
     RESEND_API_KEY: str = ""
     RESEND_FROM_EMAIL: str = "AE$R Holdings <onboarding@resend.dev>"
     ADMIN_NOTIFY_EMAIL: str = "admin@aerholdings.com"
+    BASE_URL: str = "http://localhost:3000"
 
     CORS_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://localhost:3001",
-        "https://*.railway.app",
+        "https://*.onrender.com",
         "https://*.vercel.app",
     ]
 

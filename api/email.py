@@ -67,7 +67,7 @@ def send_booking_received(full_name: str, email: str, service_type: str, preferr
             <tr style="background:#f1f5f9"><td style="padding:8px;color:#64748b">Date</td><td style="padding:8px;color:#0B192C">{preferred_date}</td></tr>
             <tr><td style="padding:8px;color:#64748b">Time</td><td style="padding:8px;color:#0B192C">{preferred_time}</td></tr>
           </table>
-          <a href="https://ae-rholdings-production.up.railway.app/admin/dashboard"
+          <a href="{settings.BASE_URL}/admin/dashboard"
              style="display:inline-block;background:#0EA5E9;color:#0B192C;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;margin-top:16px">
             View in Dashboard
           </a>
@@ -159,7 +159,7 @@ def send_contact_received(name: str, email: str, message: str) -> None:
             <tr style="background:#f1f5f9"><td style="padding:8px;color:#64748b">Email</td><td style="padding:8px;color:#0B192C">{email}</td></tr>
           </table>
           <div style="background:#f1f5f9;border-radius:12px;padding:16px;margin:16px 0;color:#0B192C;font-size:14px">{message}</div>
-          <a href="https://ae-rholdings-production.up.railway.app/admin/dashboard"
+          <a href="{settings.BASE_URL}/admin/dashboard"
              style="display:inline-block;background:#0EA5E9;color:#0B192C;font-weight:700;padding:12px 24px;border-radius:10px;text-decoration:none;margin-top:16px">
             View in Dashboard
           </a>

@@ -9,13 +9,11 @@ echo "  PORT env    : ${PORT:-<not set>}"
 echo "  DATABASE_URL: ${DATABASE_URL:0:30}..."
 echo ""
 
-# FastAPI runs on a fixed internal port (never conflicts with Railway PORT)
-API_PORT=8001
+# FastAPI runs on a fixed internal port (never conflicts with Render PORT)
+API_PORT=${API_PORT:-8001}
 
-# Next.js must listen on the port Railway exposes.
-# Railway sets PORT; its networking is also configured to port 8000.
-# Default to 8000 so we match Railway's setting even if PORT is unset.
-NEXT_PORT=${PORT:-8000}
+# Render sets PORT; default to 10000 if not provided
+NEXT_PORT=${PORT:-10000}
 
 echo "--- Starting FastAPI on 0.0.0.0:$API_PORT ---"
 uvicorn api.main:app --host 0.0.0.0 --port "$API_PORT" &

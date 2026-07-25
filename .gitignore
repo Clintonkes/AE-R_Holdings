@@ -13,6 +13,10 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 
+*.pdf
+*.pdf:Zone.Identifier
+
+
 # Environment
 .env
 .env.local

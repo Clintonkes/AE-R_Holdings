@@ -21,6 +21,8 @@ services:
       CORS_ORIGINS: '["http://localhost:3000"]'
       NEXT_PUBLIC_API_URL: http://localhost:8000
       PORT: 3000
+      API_PORT: 8001
+      BASE_URL: http://localhost:3000
     volumes:
       - app_data:/app
     restart: unless-stopped
